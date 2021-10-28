@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -14,13 +15,16 @@ public class Usuario extends ClaseBase{
 	
 	private String nombre;
 	private String apellido;
-	
+	private String email;
+	private Integer numero;
 	private String password;
 	
 	@Temporal(TemporalType.DATE)
 	private Date fecha_registro;
-	private String email;
-	private Integer numero;
+
+@OneToOne
+	private Rol id_rol;
+	
 	
 	
 	
