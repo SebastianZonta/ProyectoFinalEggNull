@@ -9,7 +9,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Presupuesto {
+public class Presupuesto extends ClaseBase{
 @Id
 private Integer id_presupuesto;
 

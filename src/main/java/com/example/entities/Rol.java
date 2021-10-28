@@ -1,6 +1,6 @@
 package com.example.entities;
 
-public class Rol {
+public class Rol extends ClaseBase{
     
 	private Integer id_rol;
 	private String descripcion;

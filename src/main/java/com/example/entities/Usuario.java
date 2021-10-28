@@ -8,7 +8,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Usuario {
+public class Usuario extends ClaseBase{
     @Id
 	private Integer id_usuario;
 	
