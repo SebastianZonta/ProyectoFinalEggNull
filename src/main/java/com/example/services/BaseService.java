@@ -9,9 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.entities.ClaseBase;
 import com.example.errores.WebException;
+import com.example.repositories.BaseRepository;
 
 
-public abstract class BaseService<TClass extends ClaseBase,TID,TRepository extends JpaRepository<TClass, TID>>  {
+public abstract class BaseService<TClass extends ClaseBase,TID,TRepository extends BaseRepository<TClass, TID>>  {
 	
 	@Autowired
 	private TRepository repository;
@@ -38,7 +39,10 @@ public abstract class BaseService<TClass extends ClaseBase,TID,TRepository exten
 		return repository.findAll();
 	}
 	
-	
+	public List<TClass> listarActivos(String nombreTabla)
+	{
+		return repository.listarEntidadesActivos(nombreTabla);
+	}
 	
 	
 }
