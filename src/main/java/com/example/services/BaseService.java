@@ -39,4 +39,6 @@ public abstract class BaseService<TClass extends ClaseBase,TID,TRepository exten
 	}
 	
 	
+	
+	
 }
