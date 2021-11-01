@@ -1,7 +1,11 @@
 package com.example.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Rol extends ClaseBase{
-    
+    @Id
 	private Integer id_rol;
 	private String descripcion;
 	
