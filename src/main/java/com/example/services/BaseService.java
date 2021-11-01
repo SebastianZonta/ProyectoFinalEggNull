@@ -24,6 +24,7 @@ public abstract class BaseService<TClass extends ClaseBase,TID,TRepository exten
 	   clase.setEsEliminado(false);
 	   return clase;
 	   
+	   
 	}
 	
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class })
