@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Tamanio extends ClaseBase{
+public class Tamanio  {
 	
     @Id
 	private Integer id_tamanio;
