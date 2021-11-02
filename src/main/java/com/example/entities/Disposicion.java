@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Disposicion {
+public class Disposicion  {
 	@Id
     private Integer id_disposicion;
 	
