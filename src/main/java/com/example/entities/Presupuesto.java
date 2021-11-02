@@ -10,6 +10,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Presupuesto {
+	
 @Id
 private Integer id_presupuesto;
 

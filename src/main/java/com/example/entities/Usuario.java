@@ -35,7 +35,7 @@ public class Usuario {
 	
 	
 	public Usuario(Integer id_usuario, String nombre, String apellido, String password, Date fecha_registro,
-			String email, Integer numero) {
+			String email, Integer numero , Rol id_rol) {
 		super();
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
@@ -44,6 +44,7 @@ public class Usuario {
 		this.fecha_registro = fecha_registro;
 		this.email = email;
 		this.numero = numero;
+		this.id_rol = id_rol;
 	}
 	public Integer getId_usuario() {
 		return id_usuario;
