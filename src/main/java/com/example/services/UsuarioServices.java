@@ -79,14 +79,14 @@ public Optional<Usuario> buscarUsuarioPorID(Integer id){
 private void validar(String nombre ,String apellido, String email , Integer numero , String password) throws WebException{
 	
 	
-	if(nombre == null || nombre.isEmpty()) {
+	if(nombre == null || nombre.isEmpty())  {
 		throw new WebException("el nombre no puede estar vacio");
 	}
 	if(apellido == null || apellido.isEmpty()) {
 		throw new WebException("el apellido no puede estar vacio");
 	}
 	
-	if(numero ==null) {
+	if(numero ==null ) {
 		throw new WebException("el numereo no puede estar vacio");
 	}
 	if(email == null || email.isEmpty()) {
