@@ -1,5 +1,6 @@
 package com.example.entities;
 
+
 import javax.persistence.Entity;
 
 import org.springframework.data.annotation.Id;
@@ -30,9 +31,10 @@ public abstract class ClaseBase {
 		return esEliminado;
 	}
 	
-	public void setEsEliminado(Boolean esEliminado) {
-		this.esEliminado = esEliminado;
-	}
-	
+
+
+
+
+		
 	
 }
