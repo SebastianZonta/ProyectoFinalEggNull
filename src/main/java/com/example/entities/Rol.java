@@ -7,6 +7,8 @@ import javax.persistence.Id;
 public class Rol extends ClaseBase{
     @Id
 	private Integer id_rol;
+    
+    
 	private String descripcion;
 	
 	
