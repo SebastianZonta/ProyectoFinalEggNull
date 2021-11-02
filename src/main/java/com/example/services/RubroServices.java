@@ -17,22 +17,22 @@ public class RubroServices {
 	@Autowired
 	private RubroRepositories repository;
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class })
-	public Rubro guardar(Integer id_rubro, String descrpcion_tipo, Integer precio_rubro)
+	public Rubro guardar(Integer id_rubro, String descripcion_tipo, Integer precio_rubro)
 	{
 		Rubro rubro=new Rubro();
 		rubro.setId_rubro(id_rubro);
-		rubro.setDescrpcion_tipo(descrpcion_tipo);
+		rubro.setDescrpcion_tipo(descripcion_tipo);
 		rubro.setPrecio_rubro(precio_rubro);
 		repository.save(rubro);
 		return rubro;
 	}
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class })
-	public Rubro modificar(Integer id_rubro, String descrpcion_tipo, Integer precio_rubro) throws WebException
+	public Rubro modificar(Integer id_rubro, String descripcion_tipo, Integer precio_rubro) throws WebException
 	{
 		Optional<Rubro> rubro=repository.findById(id_rubro);
 		if (rubro.isPresent()) {
 			Rubro rubroModi=rubro.get();
-			rubroModi.setDescrpcion_tipo(descrpcion_tipo);
+			rubroModi.setDescrpcion_tipo(descripcion_tipo);
 			rubroModi.setPrecio_rubro(precio_rubro);
 			repository.save(rubroModi);
 			return rubroModi;
@@ -60,5 +60,17 @@ public class RubroServices {
 	public List<Rubro> getAll()
 	{
 		return repository.findAll();
+	}
+	private void Validar(Integer id_rubro, String descripcion_tipo, Integer precio_rubro) throws WebException
+	{
+		if (id_rubro==0 || id_rubro==null ) {
+			throw new WebException("Id no puede ser 0 o null");
+		}
+		if (descripcion_tipo.length()==0 || descripcion_tipo.isEmpty()) {
+			throw new WebException("Descripcion no puede ser vacia");
+		}
+		if (precio_rubro==0 || precio_rubro==null) {
+			throw new WebException("Descripcion no puede ser vacia");
+		}
 	}
 }
