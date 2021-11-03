@@ -1,45 +1,57 @@
 package com.example.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Disposicion  {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id_disposicion;
 	
 	private String descripcion_disposicion;
-	private Integer precio_abertura;
+	private Integer precio_disposicion;
+	private Boolean alta;
 	
 	public Disposicion() {
-		super();
+		
 	}
-	
-	
-	public Disposicion(Integer id_disposicion, String descripcion_disposicion, Integer precio_abertura) {
-		super();
-		this.id_disposicion = id_disposicion;
-		this.descripcion_disposicion = descripcion_disposicion;
-		this.precio_abertura = precio_abertura;
-	}
+
 	public Integer getId_disposicion() {
 		return id_disposicion;
 	}
+
 	public void setId_disposicion(Integer id_disposicion) {
 		this.id_disposicion = id_disposicion;
 	}
+
 	public String getDescripcion_disposicion() {
 		return descripcion_disposicion;
 	}
+
 	public void setDescripcion_disposicion(String descripcion_disposicion) {
 		this.descripcion_disposicion = descripcion_disposicion;
 	}
-	public Integer getPrecio_abertura() {
-		return precio_abertura;
+
+	public Integer getPrecio_disposicion() {
+		return precio_disposicion;
 	}
-	public void setPrecio_abertura(Integer precio_abertura) {
-		this.precio_abertura = precio_abertura;
+
+	public void setPrecio_disposicion(Integer precio_disposicion) {
+		this.precio_disposicion = precio_disposicion;
 	}
+
+	public Boolean getAlta() {
+		return alta;
+	}
+
+	public void setAlta(Boolean alta) {
+		this.alta = alta;
+	}
+		
 	
 	
 }
