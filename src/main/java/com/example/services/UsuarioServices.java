@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.entities.Usuario;
 import com.example.errores.WebException;
@@ -76,6 +77,7 @@ public Optional<Usuario> buscarUsuarioPorID(Integer id){
 	Optional<Usuario> buscar = rpsUsuario.findById(id);
 	return buscar;
 }
+@Transactional(readOnly = true)
 public List<Usuario> getAll()
 {
 	return rpsUsuario.findAll();
