@@ -82,7 +82,7 @@ private void validar(String descripcion_disposicion ,Integer precio_disposicion)
 		throw new WebException("La descripcion no puede estar vacia");
 	}
 	if(precio_disposicion == null) {
-		throw new WebException("el apellido no puede estar vacio");
+		throw new WebException("el precio no puede estar vacio");
 	}
 	
 	
