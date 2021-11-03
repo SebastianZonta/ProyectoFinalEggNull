@@ -1,15 +1,20 @@
 package com.example.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Abertura  {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private Integer id_abertura;
     
 	private String descripcion_abertura;
 	private Integer precio_abertura;
+	private boolean alta;
 	
 	
 	public Abertura() {
@@ -17,7 +22,7 @@ public class Abertura  {
 	}
 	
 	
-	public Abertura(Integer id_abertura, String descripcion_abertura, Integer precio_abertura) {
+	public Abertura(Integer id_abertura, String descripcion_abertura, Integer precio_abertura, boolean alta) {
 		super();
 		this.id_abertura = id_abertura;
 		this.descripcion_abertura = descripcion_abertura;
@@ -40,6 +45,14 @@ public class Abertura  {
 	}
 	public void setPrecio_abertura(Integer precio_abertura) {
 		this.precio_abertura = precio_abertura;
+	}
+
+	public boolean isAlta() {
+		return alta;
+	}
+
+	public void setAlta(boolean alta) {
+		this.alta = alta;
 	}
 	
 	
