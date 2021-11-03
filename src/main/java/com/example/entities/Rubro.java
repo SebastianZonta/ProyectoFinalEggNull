@@ -1,18 +1,31 @@
 package com.example.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Rubro {
     
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id_rubro;
 	
 	private String descrpcion_tipo;
 	
 	private Integer precio_rubro;
+	private Boolean estaEliminado;
 	
+	
+	public Boolean getEstaEliminado() {
+		return estaEliminado;
+	}
+
+	public void setEstaEliminado(Boolean estaEliminado) {
+		this.estaEliminado = estaEliminado;
+	}
+
 	public Rubro() {
 		super();
 	}
