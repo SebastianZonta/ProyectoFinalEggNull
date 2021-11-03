@@ -16,18 +16,22 @@ import com.example.repositories.RubroRepositories;
 public class RubroServices {
 	@Autowired
 	private RubroRepositories repository;
-	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class })
-	public Rubro guardar(String descripcion_tipo, Integer precio_rubro)
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class } )
+	public Rubro guardar(String descripcion_tipo, Integer precio_rubro)throws WebException
 	{
+		Validar(descripcion_tipo, precio_rubro);
+		
 		Rubro rubro=new Rubro();
 		rubro.setDescrpcion_tipo(descripcion_tipo);
 		rubro.setPrecio_rubro(precio_rubro);
 		repository.save(rubro);
 		return rubro;
 	}
+	
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class })
 	public Rubro modificar(Integer id_rubro, String descripcion_tipo, Integer precio_rubro) throws WebException
 	{
+		Validar(descripcion_tipo, precio_rubro);
 		Optional<Rubro> rubro=repository.findById(id_rubro);
 		if (rubro.isPresent()) {
 			Rubro rubroModi=rubro.get();
