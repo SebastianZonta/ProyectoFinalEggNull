@@ -1,6 +1,7 @@
 package com.example.services;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.entities.Abertura;
-
+import com.example.entities.Usuario;
 import com.example.errores.WebException;
 import com.example.repositories.AberturaRepositories;
 
@@ -42,6 +43,7 @@ public class AberturaServices {
     	if(modificar.isPresent()) {
     	
     	Abertura entidad = modificar.get();
+    	
         entidad.setDescripcion_abertura(descripcion_abertura);
     	entidad.setPrecio_abertura(precio_abertura);
     	
@@ -53,7 +55,7 @@ public class AberturaServices {
     	}
     
     @Transactional
-    public Abertura DarBaja(Integer id_abertura, boolean alta) throws WebException {
+    public Abertura DarBaja(Integer id_abertura) throws WebException {
     	
     	Optional<Abertura> modificar = aberturaRepositories.findById(id_abertura); 
     	if(modificar.isPresent()) {
@@ -69,9 +71,33 @@ public class AberturaServices {
     	}
     	}
     
+    @Transactional
+    public Abertura DarAlta(Integer id_abertura) throws WebException {
+    	
+    	Optional<Abertura> modificar = aberturaRepositories.findById(id_abertura); 
+    	if(modificar.isPresent()) {
+    	
+    	Abertura entidad = modificar.get();
+        entidad.setAlta(true);
+    	
+        aberturaRepositories.save(entidad);
+    	return entidad;
+    	
+    	}else{
+    		throw new WebException(" no se ha encontrado la solcitud");
+    	}
+    	}
+    
+    @Transactional(readOnly = true)
+    public List<Abertura> getAll()
+    {
+    	return  aberturaRepositories.findAll();
+    }
+    
+    
     @Transactional(readOnly=true)
-    public Optional<Abertura> buscarUsuarioPorID(Integer id){
-    	Optional<Abertura> buscar = aberturaRepositories.findById(id);
+    public Optional<Abertura> buscarAberturaPorID(Integer id_abertura){
+    	Optional<Abertura> buscar = aberturaRepositories.findById(id_abertura);
     	return buscar;
     }
     
