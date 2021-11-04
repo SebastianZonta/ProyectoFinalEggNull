@@ -23,7 +23,7 @@ public class TamanioServices {
 	 @Transactional
 	public void tamanio( String descripcion_tamanio, Integer tamanio, Integer tamanio_precio)throws WebException{
 		
-		validar(descripcion_tamanio, tamanio,tamanio_precio);
+		/*validar(descripcion_tamanio, tamanio,tamanio_precio); */
 		
 		Tamanio tam = new Tamanio();
 	
@@ -60,19 +60,22 @@ public class TamanioServices {
 	}
 	
 	 @Transactional
-	public Optional<Tamanio> buscarUsuarioPorID(Integer id){
+	public Optional<Tamanio> buscarTamanioPorID(Integer id){
 		Optional<Tamanio> buscar = rpsTamanio.findById(id);
 		return buscar;
 	}
 	
 	 @Transactional
 		public List<Tamanio> buscarTamanio(){
-			List<Tamanio> tamanio = rpsTamanio.findAll();
-			
+			List<Tamanio> tamanio = rpsTamanio.findAll();	
 			return tamanio;
 		}
 
 	
+	 
+	 
+	 
+	 
 	
 	private void validar(String descripcion_tamanio, Integer tamanio, Integer tamanio_precio) throws WebException{
 		

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		table, th, td {
+		  border: 3px solid steelblue;
+		  border-collapse: collapse;
+		}
+	</style>
+
+	<title>tamanio lista</title>
+</head>
+
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>descripcion del tamanio</th>
+				<th>tamanio</th>
+				<th>precio</th>
+				<th>modificar tamanio</th>
+			
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="tamanio : ${tamanio}">
+				<td th:text="${tamanio.id_tamanio}"></td>
+				<td th:text="${tamanio.descripcion_tamanio}"></td>
+				<td th:text="${tamanio.tamanio}"></td>
+                <td th:text="${tamanio.precio_tamanio}"></td>
+				<td><a th:href="@{/tamanio/modificar(id_tamanio=${tamanio.id_tamanio})}"><input type="button" value="modificar" ></a></td>
+				
+			</tr>
+		</tbody>
+	</table>
+
+
+</body>
+
+</html>
