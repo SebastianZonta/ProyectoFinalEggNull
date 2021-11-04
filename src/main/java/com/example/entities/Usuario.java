@@ -27,17 +27,29 @@ public class Usuario {
 @OneToOne
 	private Rol id_rol;
 	
+@OneToOne
+    private Foto foto;
 	
 	
 	
 	
+	public Foto getFoto() {
+	return foto;
+}
+
+
+public void setFoto(Foto foto) {
+	this.foto = foto;
+}
+
+
 	public Usuario() {
 		super();
 	}
 	
 	
 	public Usuario(Integer id_usuario, String nombre, String apellido, String password, Date fecha_registro,
-			String email, Integer numero , Rol id_rol, boolean alta) {
+			String email, Integer numero , Rol id_rol, boolean alta , Foto foto) {
 		super();
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
@@ -48,6 +60,7 @@ public class Usuario {
 		this.email = email;
 		this.numero = numero;
 		this.id_rol = id_rol;
+		this.foto = foto;
 	}
 	public boolean isAlta() {
 		return alta;

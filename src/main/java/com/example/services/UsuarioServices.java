@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.example.entities.Foto;
 import com.example.entities.Usuario;
 import com.example.errores.WebException;
 import com.example.repositories.UsuarioRepositories;
@@ -19,8 +21,11 @@ public class UsuarioServices {
 
 @Autowired
 private UsuarioRepositories rpsUsuario;
+
+private FotoServices fotoService;
 	
-public Usuario registrar(String nombre ,String apellido ,Date fecha_registro, String email , Integer numero , String password) throws WebException{
+@Transactional
+public Usuario registrar(MultipartFile archivo, String nombre ,String apellido ,Date fecha_registro, String email , Integer numero , String password) throws WebException{
 	
   validar(nombre,apellido,email,numero,password);
 	
@@ -33,11 +38,15 @@ public Usuario registrar(String nombre ,String apellido ,Date fecha_registro, St
 	usuario.setEmail(email);
 	usuario.setPassword(password);
 	
+	Foto foto = fotoService.guardar(archivo);
+	usuario.setFoto(foto);
+	
 	rpsUsuario.save(usuario);
 	return usuario;
 }
 
-public Usuario modificar(Integer id , String nombre ,String apellido, String email ,Integer numero, String password) throws WebException{
+@Transactional
+public Usuario modificar(MultipartFile archivo,  Integer id , String nombre ,String apellido, String email ,Integer numero, String password) throws WebException{
 	
 	validar(nombre,apellido,email,numero,password);
 	
@@ -51,6 +60,14 @@ public Usuario modificar(Integer id , String nombre ,String apellido, String ema
     usuario.setNombre(nombre);
     usuario.setPassword(password);
     
+    String idFoto = null;
+    if(usuario.getFoto() != null) {
+    	idFoto = usuario.getFoto().getId();
+    }
+    
+    Foto foto = fotoService.actualizar(idFoto, archivo);
+    usuario.setFoto(foto);
+    
     rpsUsuario.save(usuario);
     return usuario;
     
@@ -60,6 +77,7 @@ public Usuario modificar(Integer id , String nombre ,String apellido, String ema
 	
 	}
  
+@Transactional
 public Usuario desahibilitar(Integer id, boolean alta) throws WebException {
 	Optional<Usuario> modificar = rpsUsuario.findById(id);
 	if(modificar.isPresent()) {
@@ -73,10 +91,12 @@ public Usuario desahibilitar(Integer id, boolean alta) throws WebException {
 }
 }
 
+@Transactional
 public Optional<Usuario> buscarUsuarioPorID(Integer id){
 	Optional<Usuario> buscar = rpsUsuario.findById(id);
 	return buscar;
 }
+
 @Transactional(readOnly = true)
 public List<Usuario> getAll()
 {
