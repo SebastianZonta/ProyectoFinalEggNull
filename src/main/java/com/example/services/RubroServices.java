@@ -16,13 +16,19 @@ import com.example.repositories.RubroRepositories;
 public class RubroServices {
 	@Autowired
 	private RubroRepositories repository;
+
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class } )
 	public Rubro guardar(String descripcion_tipo, Integer precio_rubro)throws WebException
+
 	{
 		Validar(descripcion_tipo, precio_rubro);
 		
 		Rubro rubro=new Rubro();
+
 		rubro.setDescrpcion_tipo(descripcion_tipo);
+
+		rubro.setDescrpcion_tipo(descripcion_tipo);
+
 		rubro.setPrecio_rubro(precio_rubro);
 		repository.save(rubro);
 		return rubro;
