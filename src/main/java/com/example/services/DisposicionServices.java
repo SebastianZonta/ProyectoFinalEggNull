@@ -1,9 +1,11 @@
 package com.example.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.entities.Disposicion;
@@ -18,7 +20,8 @@ private DisposicionRepositories rpsDisposicion;
 
 //@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class }
 
-@Transactional
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class })
+
 public Disposicion registrar(String descripcion_disposicion ,Integer precio_disposicion) throws WebException{
 	
 	validar(descripcion_disposicion,precio_disposicion);
@@ -31,7 +34,8 @@ public Disposicion registrar(String descripcion_disposicion ,Integer precio_disp
 		return disposicion;
 	}
 
-@Transactional
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class })
+
 public Disposicion modificar (Integer id,String descripcion_disposicion, Integer precio_disposicion) throws WebException {
 	
 	validar(descripcion_disposicion,precio_disposicion);
@@ -52,8 +56,9 @@ public Disposicion modificar (Integer id,String descripcion_disposicion, Integer
 	
 }
 
-@Transactional
-public Disposicion desahibilitar (Integer id, boolean alta) throws WebException {
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class })
+
+public Disposicion desahibilitar (Integer id) throws WebException {
 	
 	Optional<Disposicion> modificar = rpsDisposicion.findById(id);
 	if(modificar.isPresent()) {
@@ -68,13 +73,36 @@ public Disposicion desahibilitar (Integer id, boolean alta) throws WebException 
 		}
 		}
 
-@Transactional
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class })
+
+public Disposicion alta (Integer id) throws WebException {
+	
+	Optional<Disposicion> modificar = rpsDisposicion.findById(id);
+	if(modificar.isPresent()) {
+	
+		Disposicion disposicion = modificar.get();
+		disposicion.setAlta(true);
+		rpsDisposicion.save(disposicion);
+	
+		return disposicion;
+		}else{
+			throw new WebException("no se ha encontrado la solicitud");
+		}
+		}
+@Transactional(readOnly = true)
+
 public Optional<Disposicion> buscarDisposicionPorID(Integer id){
 	Optional<Disposicion> buscar = rpsDisposicion.findById(id);
 	return buscar;
 }
 
-@Transactional
+@Transactional(readOnly = true)
+public List<Disposicion> listarTodos(){
+	return rpsDisposicion.findAll();
+}
+
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class })
+
 private void validar(String descripcion_disposicion ,Integer precio_disposicion) throws WebException{
 	
 	
