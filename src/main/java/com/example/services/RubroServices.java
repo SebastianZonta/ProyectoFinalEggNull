@@ -17,10 +17,9 @@ public class RubroServices {
 	@Autowired
 	private RubroRepositories repository;
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class })
-	public Rubro guardar(Integer id_rubro, String descrpcion_tipo, Integer precio_rubro)
+	public Rubro guardar( String descrpcion_tipo, Integer precio_rubro)
 	{
 		Rubro rubro=new Rubro();
-		rubro.setId_rubro(id_rubro);
 		rubro.setDescrpcion_tipo(descrpcion_tipo);
 		rubro.setPrecio_rubro(precio_rubro);
 		repository.save(rubro);
