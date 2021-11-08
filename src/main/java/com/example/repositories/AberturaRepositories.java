@@ -16,10 +16,10 @@ import com.example.entities.Abertura;
 public interface AberturaRepositories  extends JpaRepository<Abertura, Integer> {
 	
  
-@Query("SELECT a FROM Autor a WHERE a.alta = false")
+@Query("SELECT a FROM Abertura a WHERE a.alta = true")
 public List<Abertura> buscarAberturaAlta();
 
-@Query("SELECT a FROM Autor a WHERE a.alta = true")
+@Query("SELECT a FROM Abertura a WHERE a.alta = false")
 public List<Abertura> buscarAberturaBaja();
 
 
