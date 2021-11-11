@@ -135,7 +135,7 @@ private void validar(String nombre ,String apellido, String email ,String passwo
 
 @Override
 public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-	Usuario usuario = rpsUsuario.buscarporemail(email);
+	Usuario usuario = (Usuario) rpsUsuario.buscarporemail(email);
 	
 	if(usuario !=null) {
 		

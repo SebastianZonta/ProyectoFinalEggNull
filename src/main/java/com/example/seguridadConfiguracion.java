@@ -22,7 +22,7 @@ public class seguridadConfiguracion extends WebSecurityConfigurerAdapter{
 	@Autowired
 	public UsuarioServices usuarioServices;
 	
-	
+
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception  {
@@ -43,7 +43,7 @@ public class seguridadConfiguracion extends WebSecurityConfigurerAdapter{
 		.loginProcessingUrl("/logincheck")
 		.usernameParameter("username")
 		.passwordParameter("password")
-		.defaultSuccessUrl("/presupuesto/ver-presupuesto")
+		.defaultSuccessUrl("/")
 		.permitAll()
 		.and().logout()
 		.logoutUrl("/logout")

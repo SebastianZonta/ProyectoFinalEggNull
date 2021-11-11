@@ -13,8 +13,8 @@ import com.example.entities.Usuario;
 public interface UsuarioRepositories extends JpaRepository<Usuario, Integer>{
 
 	
-	@Query("SELECT a.email FROM Usuario a where a.email =:email")
-	public Usuario buscarporemail(@Param("email") String  email);
+	@Query("SELECT a FROM Usuario a where a.email =:email")
+	public Usuario  buscarporemail(@Param("email") String  email);
 
 	
 	
