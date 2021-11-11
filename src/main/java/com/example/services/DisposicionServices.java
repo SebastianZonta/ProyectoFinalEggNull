@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.entities.Abertura;
 import com.example.entities.Disposicion;
 import com.example.errores.WebException;
 import com.example.repositories.DisposicionRepositories;
@@ -111,8 +112,24 @@ private void validar(String descripcion_disposicion ,Integer precio_disposicion)
 	}
 	if(precio_disposicion == null) {
 		throw new WebException("el precio no puede estar vacio");
-	}
-	
-	
+	}	
 }
+
+
+@Transactional
+public void precioabertura(Abertura abertura){
+	
+	  
+if(abertura.getDescripcion_abertura().equals("aluminio")){
+	   abertura.setPrecio_abertura(15000);
+}
+
+if(abertura.getDescripcion_abertura().equals("madera")){
+	   abertura.setPrecio_abertura(10000);
+ 
+ }
+ }
+ 
+
+
 }

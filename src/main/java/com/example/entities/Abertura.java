@@ -9,8 +9,9 @@ import javax.persistence.Id;
 public class Abertura  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private Integer id_abertura;
+    
+    
 	private String descripcion_abertura;
 	private Integer precio_abertura;
 	private boolean alta;

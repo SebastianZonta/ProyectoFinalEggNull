@@ -13,6 +13,8 @@ import com.example.entities.Usuario;
 import com.example.errores.WebException;
 import com.example.repositories.AberturaRepositories;
 
+
+
 @Service
 public class AberturaServices {
 
@@ -87,6 +89,32 @@ public class AberturaServices {
     		throw new WebException(" no se ha encontrado la solcitud");
     	}
     	}
+    
+    
+    @Transactional
+    public void precioabertura(Abertura abertura){
+    	
+  
+   if(abertura.getDescripcion_abertura().equals("aluminio")){
+	   abertura.setPrecio_abertura(15000);
+   }
+   
+   if(abertura.getDescripcion_abertura().equals("madera")){
+	   abertura.setPrecio_abertura(10000);
+    
+    }
+    }
+    
+    @Transactional
+   	public List<Abertura> buscarAbertura(){
+   		List<Abertura> abertura = aberturaRepositories.findAll();
+   		
+   		return abertura;
+   	}
+
+    
+    
+    
     
     @Transactional(readOnly = true)
     public List<Abertura> getAll()
