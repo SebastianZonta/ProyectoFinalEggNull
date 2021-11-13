@@ -1,5 +1,6 @@
 package com.example.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,8 +11,9 @@ public class Rol {
     
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_rol")
 	private Integer id_rol;
-        
+    @Column(name = "descripcion")
 	private String descripcion;
 	
 	

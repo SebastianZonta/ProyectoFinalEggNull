@@ -2,10 +2,12 @@ package com.example.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -16,19 +18,28 @@ public class Usuario {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
 	private Integer id_usuario;
-	
+    @Column(name = "nombre")
 	private String nombre;
+    @Column(name = "apellido")
+    
 	private String apellido;
-	private String email;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "numero")
 	private long numero;
+    @Column(name = "password")
 	private String password;
+    @Column(name = "alta")
 	private boolean alta;
 	
 	@Temporal(TemporalType.DATE)
+	@Column(name = "fecha_registro")
 	private Date fecha_registro;
 
 	@OneToOne
+	@JoinColumn(name = "id_rol")
 	private Rol id_rol;
 	
 

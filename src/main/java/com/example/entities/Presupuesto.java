@@ -2,10 +2,12 @@ package com.example.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,24 +19,31 @@ public class Presupuesto {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Column(name = "id_presupuesto")
 private Integer id_presupuesto;
-
+@Column(name = "precioTotal")
 private Integer precioTotal;
 
 @OneToOne
+@JoinColumn(name = "id_rubro")
 private Rubro id_rubro;
 @OneToOne
+@JoinColumn(name = "id_tamanio")
 private Tamanio id_tamanio;
 @OneToOne
+@JoinColumn(name = "id_disposicion")
 private Disposicion id_disposicion;
 @OneToOne
+@JoinColumn(name = "id_abertura")
 private  Abertura id_abertura;
 @OneToOne
+@JoinColumn(name = "id_usuario")
 private Usuario id_usuario;
-
+@Column(name = "alta")
 private boolean alta;
 
 @Temporal(TemporalType.DATE)
+@Column(name = "fecha_caducidad")
 private Date fecha_caducidad;
 
 

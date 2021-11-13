@@ -1,5 +1,6 @@
 package com.example.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,11 +10,13 @@ import javax.persistence.Id;
 public class Disposicion  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
+	@Column(name = "id_disposicion")
     private Integer id_disposicion;
-	
+	@Column(name = "descripcion_disposicion")
 	private String descripcion_disposicion;
+	@Column(name = "precio_disposicion")
 	private Integer precio_disposicion;
+	@Column(name = "alta")
 	private Boolean alta;
 	
 	public Disposicion() {
