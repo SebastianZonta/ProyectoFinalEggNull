@@ -58,6 +58,11 @@ public class LoginController {
 		return "redirect:/";
 	}
 	}
+
+	@GetMapping("/panel7")
+	public ModelAndView mostrarlogi() {
+		return new ModelAndView("NomelaContainer");
+	}
 	
 
 	@GetMapping("/login")

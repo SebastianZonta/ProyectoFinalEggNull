@@ -141,6 +141,7 @@ public UserDetails loadUserByUsername(String email) throws UsernameNotFoundExcep
 		
 		List<GrantedAuthority> permiso = new ArrayList<>();
 		GrantedAuthority p1 = new SimpleGrantedAuthority("ROLE_USUARIO_REGISTRADO");
+		
 		permiso.add(p1);
 
 		User user = new User(usuario.getEmail(), usuario.getPassword() , permiso);

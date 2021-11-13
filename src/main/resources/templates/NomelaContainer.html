@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <html data-wf-domain="nomelacontainer.webflow.io" data-wf-page="617b28f883e66067cdd9a6a4"
-    data-wf-site="617b28f883e6602898d9a69f" data-wf-status="1">
+    data-wf-site="617b28f883e6602898d9a69f" data-wf-status="1"
+   xmlns:th="http://www.thymeleaf.org" >
 
 <head>
     <meta charset="utf-8" />
@@ -32,7 +33,7 @@
 
 <body>
     <!-- NAV de bootstrap -->
-    <nav id="navbar-example2" class="navbar navbar-light bg-dark px-3 fixed-top" id="inicio">
+    <nav id="navbar-example2" class="navbar navbar-light bg-dark px-3 fixed-top" > 
         <img src="https://uploads-ssl.webflow.com/617b28f883e6602898d9a69f/617b2b191435987142c28dc2_LOGO.png"
             loading="lazy" width="119" sizes="(max-width: 991px) 100vw, 119px"
             srcset="https://uploads-ssl.webflow.com/617b28f883e6602898d9a69f/617b2b191435987142c28dc2_LOGO-p-500.png 500w, https://uploads-ssl.webflow.com/617b28f883e6602898d9a69f/617b2b191435987142c28dc2_LOGO-p-800.png 800w, https://uploads-ssl.webflow.com/617b28f883e6602898d9a69f/617b2b191435987142c28dc2_LOGO-p-1080.png 1080w, https://uploads-ssl.webflow.com/617b28f883e6602898d9a69f/617b2b191435987142c28dc2_LOGO.png 1347w"
@@ -90,13 +91,13 @@
 
                             <!--Body-->
                             <!--EN EL ACTION VA LA RUTA AL ARCHIVO DE JAVA QUE VA A RECIBIR EL FORMULARIO-->
-                            <form action="" method="post" enctype="text/plain">
+                            <form th:action="@{/logincheck}" method="POST" >
                                 <div class=" modal-body mb-1">
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-envelope prefix"></i>
                                         <label data-error="wrong" data-success="right" for="email-login"
                                             name="email-login">Ingrese su E-Mail:</label>
-                                        <input type="email" id="email-login"
+                                        <input type="email" name="username"
                                             class="form-control form-control-sm validate">
                                     </div>
 
@@ -104,7 +105,7 @@
                                         <i class="fas fa-lock prefix"></i>
                                         <label data-error="wrong" data-success="right" for="password-login"
                                             name="password-login">Ingrese su contraseña:</label>
-                                        <input type="password" id="password-login"
+                                        <input type="password" name="password"
                                             class="form-control form-control-sm validate">
                                     </div>
                                     <div class="text-center mt-2">
@@ -121,13 +122,36 @@
 
                             <!--Body-->
                             <!--EN EL ACTION VA LA RUTA AL ARCHIVO DE JAVA QUE VA A RECIBIR EL FORMULARIO-->
-                            <form action="" method="post" enctype="text/plain">
+                            <form th:action="@{/crear}" method="post">
                                 <div class="modal-body">
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-envelope prefix"></i>
                                         <label data-error="wrong" data-success="right" for="email-registro"
+                                            name="email-registro">Registre su nombre:</label>
+                                        <input type="text" name="nombre"
+                                            class="form-control form-control-sm validate">
+                                    </div>
+
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-envelope prefix"></i>
+                                        <label data-error="wrong" data-success="right" for="email-registro"
+                                            name="email-registro">Registre su apellido:</label>
+                                        <input type="text" name="apellido"
+                                            class="form-control form-control-sm validate">
+                                    </div>
+
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-envelope prefix"></i>
+                                        <label data-error="wrong" data-success="right" for="email-registro"
+                                            name="email-registro">Registre su numero:</label>
+                                        <input type="number" name="apellido"
+                                            class="form-control form-control-sm validate">
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-envelope prefix"></i>
+                                        <label data-error="wrong" data-success="right" for="email-registro"
                                             name="email-registro">Registre su E-Mail:</label>
-                                        <input type="email" id="email-registro"
+                                        <input type="email" name="email"
                                             class="form-control form-control-sm validate">
                                     </div>
 
@@ -135,7 +159,7 @@
                                         <i class="fas fa-lock prefix"></i>
                                         <label data-error="wrong" data-success="right" for="password-registro"
                                             name="password-registro">Registre su contraseña:</label>
-                                        <input type="password" id="password-registro"
+                                        <input type="password" name="password"
                                             class="form-control form-control-sm validate">
                                     </div>
 
@@ -143,7 +167,7 @@
                                         <i class="fas fa-lock prefix"></i>
                                         <label data-error="wrong" data-success="right" for="password-registro-b"
                                             name="password-registro-b">Confirme la contraseña:</label>
-                                        <input type="password" id="password-registro-b"
+                                        <input type="password" name="password2"
                                             class="form-control form-control-sm validate">
                                     </div>
 
