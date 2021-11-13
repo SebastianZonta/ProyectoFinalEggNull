@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		table, th, td {
+		  border: 3px solid steelblue;
+		  border-collapse: collapse;
+		}
+	</style>
+
+	<title>libro lista</title>
+</head>
+
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>abertura</th>
+				<th>precio de abertura</th>
+                <th>tamanio</th>
+                <th>precio de tamanio</th>
+                <th>rubro</th>
+                <th>precio de rubro</th>
+				<th>total </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="presupuesto : ${presupuesto}">
+				<td th:text="${presupuesto.id_presupuesto}"></td>
+				<td th:text="${presupuesto.id_abertura.descripcion_abertura}"></td>
+				<td th:text="${presupuesto.id_abertura.precio_abertura}"></td> 
+                <td th:text="${presupuesto.id_tamanio.tamanio}"></td>
+                <td th:text="${presupuesto.id_tamanio.precio_tamanio}"></td> 
+                <td th:text="${presupuesto.id_rubro.descrpcion_tipo}"></td>
+               <td th:text="${presupuesto.id_rubro.precio_rubro}"></td>
+                <td th:text="${presupuesto.precioTotal}"></td>
+			
+
+			</tr>
+		</tbody>
+	</table>
+
+
+</body>
+
+</html>

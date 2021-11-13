@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <form th:action="@{/presupuesto/guardar}" method="POST">
+    
+       <!-- <input type="hidden" name="id" th:value="${presupuesto.id_presupuesto}" /> -->
+          
+
+        <label id="id_rubro" name="name" for="name">elija rubro<br>
+              
+            <select  name="rubro"> <br>
+            <option th:each="rubro: ${rubro} " th:text="${rubro.descrpcion_tipo}"  th:value="${rubro.id_rubro}"></option>
+        </select>
+
+       <br>
+
+
+        <label id=id_tamanio name="name" for="name"> elija tamanio<br>
+              
+            <select  name="tamanio"> <br>
+            <option th:each="tamanio: ${tamanio} " th:text="${tamanio.tamanio}"  th:value="${tamanio.id_tamanio}"></option>
+        </select>
+
+       <br>
+
+                  
+           <label name="name" for="name">elija abertura<br>
+           
+           <select id=id_abertura name="abertura">
+                   <option th:each="abertura: ${abertura} " th:text="${abertura.descripcion_abertura}" th:value="${abertura.id_abertura}"></option>
+               </select>
+       
+       
+          
+       <input type="submit"/>
+       
+       </form>
+</body>
+</html>

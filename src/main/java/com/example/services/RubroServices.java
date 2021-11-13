@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.entities.Abertura;
 import com.example.entities.Rubro;
 import com.example.errores.WebException;
 import com.example.repositories.RubroRepositories;
@@ -16,6 +17,8 @@ import com.example.repositories.RubroRepositories;
 public class RubroServices {
 	@Autowired
 	private RubroRepositories repository;
+	
+	
 
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class } )
 	public Rubro guardar(String descripcion_tipo, Integer precio_rubro)throws WebException
@@ -26,9 +29,7 @@ public class RubroServices {
 		Rubro rubro=new Rubro();
 
 		rubro.setDescrpcion_tipo(descripcion_tipo);
-
-		rubro.setDescrpcion_tipo(descripcion_tipo);
-
+		
 		rubro.setPrecio_rubro(precio_rubro);
 		repository.save(rubro);
 		return rubro;
@@ -64,7 +65,16 @@ public class RubroServices {
 			throw new WebException("Error");
 		}
 		
+		
 	}
+	   @Transactional(readOnly=true)
+	    public Optional<Rubro> buscarRubroPorID(Integer id_rubro){
+	    	Optional<Rubro> buscar = repository.findById(id_rubro);
+	    	return buscar;
+	    }
+	
+	
+	
 	@Transactional(readOnly = true)
 	public List<Rubro> getAll()
 	{
@@ -79,4 +89,26 @@ public class RubroServices {
 			throw new WebException("Descripcion no puede ser vacia");
 		}
 	}
+	
+	
+	@Transactional
+	public void precio(Rubro rubro) {
+		
+	if(rubro.getDescrpcion_tipo().equals("comercial")) {
+		rubro.setPrecio_rubro(20000);
+	}
+	
+	if(rubro.getDescrpcion_tipo().equals("vivienda")) {
+		rubro.setPrecio_rubro(35000);
+	}
+	}
+	
+	 @Transactional
+	   	public List<Rubro> buscarRubro(){
+	   		List<Rubro> rubro = repository.findAll();
+	   		
+	   		return rubro;
+	   	}
+	
+	
 }

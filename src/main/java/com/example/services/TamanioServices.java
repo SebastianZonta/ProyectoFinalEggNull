@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.entities.Abertura;
 import com.example.entities.Tamanio;
 
 import com.example.errores.WebException;
@@ -72,6 +73,24 @@ public class TamanioServices {
 		}
 
 	
+	 
+	 @Transactional
+	    public void precioabertura(Tamanio tamanio){
+	    	
+	  
+	   if(tamanio.getTamanio() == 15){
+		   tamanio.setPrecio_tamanio(5000);
+	   }
+	   
+	   if(tamanio.getTamanio() == 10){
+		   tamanio.setPrecio_tamanio(1000);
+	    
+	    }
+	    }
+	    
+	 
+	 
+	 
 	 
 	 
 	 

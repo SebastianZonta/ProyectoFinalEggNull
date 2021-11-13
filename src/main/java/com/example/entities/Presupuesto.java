@@ -3,6 +3,8 @@ package com.example.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -14,7 +16,10 @@ public class Presupuesto {
 
 
 @Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 private Integer id_presupuesto;
+
+private Integer precioTotal;
 
 @OneToOne
 private Rubro id_rubro;
@@ -43,8 +48,24 @@ public Presupuesto() {
 
 
 
+public Integer getPrecioTotal() {
+	return precioTotal;
+}
+
+
+
+
+
+public void setPrecioTotal(Integer precioTotal) {
+	this.precioTotal = precioTotal;
+}
+
+
+
+
+
 public Presupuesto(Integer id_presupuesto, Rubro id_rubro, Tamanio id_tamanio, Disposicion id_disposicion,
-		Abertura id_abertura, Usuario id_usuario, boolean alta, Date fecha_caducidad) {
+		Abertura id_abertura, Usuario id_usuario, boolean alta, Date fecha_caducidad, Integer precioTotal) {
 	super();
 	this.id_presupuesto = id_presupuesto;
 	this.id_rubro = id_rubro;
@@ -54,6 +75,7 @@ public Presupuesto(Integer id_presupuesto, Rubro id_rubro, Tamanio id_tamanio, D
 	this.id_usuario = id_usuario;
 	this.alta = alta;
 	this.fecha_caducidad = fecha_caducidad;
+	this.precioTotal = precioTotal;
 }
 public Integer getId_presupuesto() {
 	return id_presupuesto;

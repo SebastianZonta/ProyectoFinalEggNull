@@ -3,15 +3,18 @@ package com.example.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 public class Usuario {
     @Id
-    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_usuario;
 	
 	private String nombre;
@@ -27,20 +30,6 @@ public class Usuario {
 @OneToOne
 	private Rol id_rol;
 	
-@OneToOne
-    private Foto foto;
-	
-	
-	
-	
-	public Foto getFoto() {
-	return foto;
-}
-
-
-public void setFoto(Foto foto) {
-	this.foto = foto;
-}
 
 
 	public Usuario() {
@@ -49,7 +38,7 @@ public void setFoto(Foto foto) {
 	
 	
 	public Usuario(Integer id_usuario, String nombre, String apellido, String password, Date fecha_registro,
-			String email, Integer numero , Rol id_rol, boolean alta , Foto foto) {
+			String email, Integer numero , Rol id_rol, boolean alta ) {
 		super();
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
@@ -60,7 +49,7 @@ public void setFoto(Foto foto) {
 		this.email = email;
 		this.numero = numero;
 		this.id_rol = id_rol;
-		this.foto = foto;
+		
 	}
 	public boolean isAlta() {
 		return alta;

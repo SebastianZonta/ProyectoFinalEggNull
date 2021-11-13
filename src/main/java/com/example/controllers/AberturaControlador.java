@@ -22,6 +22,7 @@ public class AberturaControlador {
 	@Autowired
 	private AberturaServices aberturaServices;
 
+	/*
 	@GetMapping("/listar")
 	public ModelAndView buscarAberturaPorID() {
 
@@ -96,6 +97,8 @@ public class AberturaControlador {
 		 }
 		  return "redirect:/autor/abertura-Listar/";
 	 }
+	 
+	 */
 }
 
 
