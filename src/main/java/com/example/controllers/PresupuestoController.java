@@ -24,7 +24,9 @@ import com.example.services.TamanioServices;
 
 
 @Controller
-//@PreAuthorize("hasAnyRole('ROLE_USUARIO_REGISTRADO')")
+
+@PreAuthorize("hasAnyRole('ROLE_ADMIN_REGISTRADO')")
+
 @RequestMapping("/presupuesto")
 public class PresupuestoController {
 

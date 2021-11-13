@@ -15,6 +15,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Usuario {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
@@ -26,8 +27,9 @@ public class Usuario {
     @Column(name = "email")
     
 	private String email;
+
 	@Column(name = "numero")
-    private Integer numero;
+    private long numero;
 	@Column(name = "password")
 	private String password;
 	@Column(name = "alta")
@@ -36,12 +38,13 @@ public class Usuario {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "fecha_registro")
 	private Date fecha_registro;
+
 	
 @OneToOne
 @JoinColumn(name = "rol_id")
 	private Rol rol;
-	
 
+	
 
 	public Usuario() {
 		super();
@@ -49,7 +52,7 @@ public class Usuario {
 	
 	
 	public Usuario(Integer id_usuario, String nombre, String apellido, String password, Date fecha_registro,
-			String email, Integer numero , Rol id_rol, boolean alta ) {
+			String email, long numero , Rol id_rol, boolean alta ) {
 		super();
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
@@ -118,10 +121,10 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getNumero() {
+	public long getNumero() {
 		return numero;
 	}
-	public void setNumero(Integer numero) {
+	public void setNumero(long numero) {
 		this.numero = numero;
 	}
 

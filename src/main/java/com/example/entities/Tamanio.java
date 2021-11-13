@@ -11,9 +11,9 @@ public class Tamanio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_tamanio;
-	private String descripcion_tamanio;
+
 	private boolean alta;
-	private Integer tamanio;
+	private String tamanio;
 	private Integer precio_tamanio;
 	
 	public Tamanio() {
@@ -28,18 +28,17 @@ public class Tamanio {
 		this.alta = alta;
 	}
 
-	public Integer getTamanio() {
+	public String getTamanio() {
 		return tamanio;
 	}
 
-	public void setTamanio(Integer tamanio) {
+	public void setTamanio(String tamanio) {
 		this.tamanio = tamanio;
 	}
 
-	public Tamanio(Integer id_tamanio, String descripcion_tamanio, Integer precio_tamanio , Integer tamanio, boolean alta ) {
+	public Tamanio(Integer id_tamanio, Integer precio_tamanio , String tamanio, boolean alta ) {
 		super();
 		this.id_tamanio = id_tamanio;
-		this.descripcion_tamanio = descripcion_tamanio;
 		this.precio_tamanio = precio_tamanio;
 		this.tamanio = tamanio;
 		this.alta = alta;
@@ -50,12 +49,7 @@ public class Tamanio {
 	public void setId_tamanio(Integer id_tamanio) {
 		this.id_tamanio = id_tamanio;
 	}
-	public String getDescripcion_tamanio() {
-		return descripcion_tamanio;
-	}
-	public void setDescripcion_tamanio(String descripcion_tamanio) {
-		this.descripcion_tamanio = descripcion_tamanio;
-	}
+	
 	public Integer getPrecio_tamanio() {
 		return precio_tamanio;
 	}

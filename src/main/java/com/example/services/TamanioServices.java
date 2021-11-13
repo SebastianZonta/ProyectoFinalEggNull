@@ -22,35 +22,37 @@ public class TamanioServices {
 	private TamanioRepositories rpsTamanio;
 	
 	 @Transactional
-	public void tamanio( String descripcion_tamanio, Integer tamanio, Integer tamanio_precio)throws WebException{
+	public void tamanio( String tamanio, Integer tamanio_precio)throws WebException{
 		
 		/*validar(descripcion_tamanio, tamanio,tamanio_precio); */
 		
 		Tamanio tam = new Tamanio();
 	
-	    tam.setDescripcion_tamanio(descripcion_tamanio);
+	    
 	    tam.setTamanio(tamanio);
 	    tam.setPrecio_tamanio(tamanio_precio);
 	    rpsTamanio.save(tam);
 
 }
 	
-	 @Transactional
-	public void modificar(Integer id , String descripcion_tamanio, Integer tamanio, Integer tamanio_precio)throws WebException {
+/*	 @Transactional
+	public void modificar(Integer id ,  String tamanio, Integer tamanio_precio)throws WebException {
 		
-		validar(descripcion_tamanio, tamanio,tamanio_precio);
+		validar(tamanio,tamanio_precio);
 		
 		Optional<Tamanio> modificar = rpsTamanio.findById(id);
 		if(modificar.isPresent()) {
 			Tamanio tam = modificar.get();
-			  tam.setDescripcion_tamanio(descripcion_tamanio);
+			  
 			    tam.setTamanio(tamanio);
 			    tam.setPrecio_tamanio(tamanio_precio);
 			    rpsTamanio.save(tam);
 		}
 		
-	}
-	 @Transactional
+	}*/
+	
+	 
+	/* @Transactional
 	public void desahibilitar(Integer id, boolean alta) {
 		Optional<Tamanio> modificar = rpsTamanio.findById(id);
 		if(modificar.isPresent()) {
@@ -58,7 +60,7 @@ public class TamanioServices {
 		tam.setAlta(false);
 		rpsTamanio.save(tam);
 		}
-	}
+	}*/
 	
 	 @Transactional
 	public Optional<Tamanio> buscarTamanioPorID(Integer id){
@@ -74,7 +76,7 @@ public class TamanioServices {
 
 	
 	 
-	 @Transactional
+	/* @Transactional
 	    public void precioabertura(Tamanio tamanio){
 	    	
 	  
@@ -86,21 +88,12 @@ public class TamanioServices {
 		   tamanio.setPrecio_tamanio(1000);
 	    
 	    }
-	    }
+	    }*/
 	    
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+	  
 	
-	private void validar(String descripcion_tamanio, Integer tamanio, Integer tamanio_precio) throws WebException{
-		
-		if(descripcion_tamanio == null || descripcion_tamanio.isEmpty())  {
-			throw new WebException("la descripcion  no puede estar vacio");
-		}
+	private void validar( String tamanio, Integer tamanio_precio) throws WebException{
+				
 		if(tamanio == null) {
 			throw new WebException("el tamanio no puede estar vacio");
 		}

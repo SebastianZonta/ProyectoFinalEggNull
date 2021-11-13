@@ -15,15 +15,15 @@ public class Rubro {
 	private String descrpcion_tipo;
 	
 	private Integer precio_rubro;
-	private Boolean estaEliminado;
+	private Boolean alta;
 	
 	
 	public Boolean getEstaEliminado() {
-		return estaEliminado;
+		return alta;
 	}
 
 	public void setEstaEliminado(Boolean estaEliminado) {
-		this.estaEliminado = estaEliminado;
+		this.alta = estaEliminado;
 	}
 
 	public Rubro() {
