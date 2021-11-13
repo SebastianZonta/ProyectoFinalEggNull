@@ -2,10 +2,12 @@ package com.example.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -15,20 +17,29 @@ import javax.persistence.TemporalType;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
 	private Integer id_usuario;
-	
+    @Column(name = "nombre")
 	private String nombre;
+    @Column(name = "apellido")
 	private String apellido;
+    @Column(name = "email")
+    
 	private String email;
-	private Integer numero;
+	@Column(name = "numero")
+    private Integer numero;
+	@Column(name = "password")
 	private String password;
+	@Column(name = "alta")
 	private boolean alta;
-	
-	@Temporal(TemporalType.DATE)
-	private Date fecha_registro;
 
+	@Temporal(TemporalType.DATE)
+	@Column(name = "fecha_registro")
+	private Date fecha_registro;
+	
 @OneToOne
-	private Rol id_rol;
+@JoinColumn(name = "rol_id")
+	private Rol rol;
 	
 
 
@@ -48,7 +59,7 @@ public class Usuario {
 		this.fecha_registro = fecha_registro;
 		this.email = email;
 		this.numero = numero;
-		this.id_rol = id_rol;
+		this.rol = id_rol;
 		
 	}
 	public boolean isAlta() {
@@ -62,12 +73,12 @@ public class Usuario {
 
 
 	public Rol getId_rol() {
-		return id_rol;
+		return rol;
 	}
 
 
 	public void setId_rol(Rol id_rol) {
-		this.id_rol = id_rol;
+		this.rol = id_rol;
 	}
 
 

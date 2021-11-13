@@ -24,7 +24,7 @@ import com.example.services.TamanioServices;
 
 
 @Controller
-@PreAuthorize("hasAnyRole('ROLE_USUARIO_REGISTRADO')")
+//@PreAuthorize("hasAnyRole('ROLE_USUARIO_REGISTRADO')")
 @RequestMapping("/presupuesto")
 public class PresupuestoController {
 
@@ -41,11 +41,11 @@ private AberturaServices servAbertura;
 private TamanioServices servTamanio;
 	
 
-@PreAuthorize("hasAnyRole('ROLE_USUARIO_REGISTRADO')")
+//@PreAuthorize("hasAnyRole('ROLE_USUARIO_REGISTRADO')")
 @GetMapping("/ver-presupuesto")
 public ModelAndView buscarlibro() throws Exception{
     
-    ModelAndView mav = new ModelAndView("/presupuesto-lista");
+    ModelAndView mav = new ModelAndView("/presupuesto-lista.html");
     List<Presupuesto> presupuesto = servPresu.getAll();
     mav.addObject("presupuesto", presupuesto);
     return mav;

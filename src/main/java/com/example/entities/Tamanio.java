@@ -11,7 +11,6 @@ public class Tamanio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_tamanio;
-    
 	private String descripcion_tamanio;
 	private boolean alta;
 	private Integer tamanio;
