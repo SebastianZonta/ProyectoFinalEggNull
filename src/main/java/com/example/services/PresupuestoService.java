@@ -41,7 +41,7 @@ public void preciofinal(Abertura abertura, Tamanio tamanio , Rubro rubro) {
 	presu.setId_abertura(abertura);
 	abertura.getPrecio_abertura();
 	
-	servTamanio.precioabertura(tamanio);
+	/*servTamanio.precioabertura(tamanio);*/
 	presu.setId_tamanio(tamanio);
 	tamanio.getPrecio_tamanio();
 	

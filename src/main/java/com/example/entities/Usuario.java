@@ -13,6 +13,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Usuario {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_usuario;
@@ -20,17 +21,16 @@ public class Usuario {
 	private String nombre;
 	private String apellido;
 	private String email;
-	private Integer numero;
+	private long numero;
 	private String password;
 	private boolean alta;
 	
 	@Temporal(TemporalType.DATE)
 	private Date fecha_registro;
 
-@OneToOne
+	@OneToOne
 	private Rol id_rol;
 	
-
 
 	public Usuario() {
 		super();
@@ -38,7 +38,7 @@ public class Usuario {
 	
 	
 	public Usuario(Integer id_usuario, String nombre, String apellido, String password, Date fecha_registro,
-			String email, Integer numero , Rol id_rol, boolean alta ) {
+			String email, long numero , Rol id_rol, boolean alta ) {
 		super();
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
@@ -107,10 +107,10 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getNumero() {
+	public long getNumero() {
 		return numero;
 	}
-	public void setNumero(Integer numero) {
+	public void setNumero(long numero) {
 		this.numero = numero;
 	}
 

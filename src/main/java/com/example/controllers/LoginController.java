@@ -32,13 +32,13 @@ public class LoginController {
 	}
 	
 	@PostMapping("/crear")
-	public String registrar( @RequestParam("nombre") String nombre , 
+	public String registrar(@RequestParam("numero") long numero , @RequestParam("nombre") String nombre , 
 			@RequestParam("apellido") String apellido , @RequestParam("email") String email , 
 			 @RequestParam("password") String password ,
 			@RequestParam("password2") String password2) throws WebException{
-	 
+		
 		try {
-		usuarioServices.registrar(nombre, apellido, null, email,password, password2);
+		usuarioServices.registrar(numero, apellido, nombre,null, email,password, password2);
 		System.out.println("nombre" + nombre);
 		System.out.println("apellido" + apellido);
 		System.out.println("email" + email);

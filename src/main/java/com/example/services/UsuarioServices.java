@@ -32,7 +32,7 @@ private UsuarioRepositories rpsUsuario;
 
 	
 @Transactional
-public Usuario registrar(String nombre ,String apellido ,Date fecha_registro, String email ,  String password,String password2) throws WebException{
+public Usuario registrar(long numero,String nombre ,String apellido ,Date fecha_registro, String email ,  String password,String password2) throws WebException{
 	
   validar(nombre,apellido,email,password,password2);
 	
@@ -41,9 +41,9 @@ public Usuario registrar(String nombre ,String apellido ,Date fecha_registro, St
 	usuario.setApellido(apellido);
 	usuario.setAlta(true);
 	usuario.setFecha_registro(new Date());
-	usuario.setNumero(null);
+	usuario.setNumero(numero);
 	usuario.setEmail(email);
-	
+
 	   String ecriptada = new BCryptPasswordEncoder().encode(password);
 	  
 		usuario.setPassword(ecriptada);
@@ -54,7 +54,7 @@ public Usuario registrar(String nombre ,String apellido ,Date fecha_registro, St
 }
 
 @Transactional
-public Usuario modificar(Integer id , String nombre ,String apellido, String email ,Integer numero, String password, String password2) throws WebException{
+public Usuario modificar(Integer id , String nombre ,String apellido, String email ,long numero, String password, String password2) throws WebException{
 	
 	validar(nombre,apellido,email,password,password2);
 	
@@ -141,8 +141,10 @@ public UserDetails loadUserByUsername(String email) throws UsernameNotFoundExcep
 		
 		List<GrantedAuthority> permiso = new ArrayList<>();
 		GrantedAuthority p1 = new SimpleGrantedAuthority("ROLE_USUARIO_REGISTRADO");
+		GrantedAuthority p2 = new SimpleGrantedAuthority("ROLE_ADMIN_REGISTRADO");
 		
 		permiso.add(p1);
+		permiso.add(p2);
 
 		User user = new User(usuario.getEmail(), usuario.getPassword() , permiso);
 		return user;

@@ -37,7 +37,7 @@ public class tamanioControllers {
 	}
 	
 	
-	@PostMapping("/guardar-tamanio") 
+	/*@PostMapping("/guardar-tamanio") 
 	public String crearTamanio(@RequestParam String descripcion_tamanio, @RequestParam Integer tamanio, @RequestParam Integer tamanio_precio){
 		try {
 			
@@ -47,7 +47,7 @@ public class tamanioControllers {
 			 return "redirect:/tamanio/crear-tamanio/";
 		}
 		 return "redirect:/tamanio/ver-tamanio/";
-	}
+	} */
 
 	 
 	 @GetMapping("/modificar")
@@ -60,7 +60,7 @@ public class tamanioControllers {
 	 }
 	 
 
-	 @PostMapping("/editar")
+	/* @PostMapping("/editar")
 	 public String modificarTamanio( @RequestParam Integer id_tamanio ,@RequestParam String descripcion_tamanio, @RequestParam Integer tamanio, @RequestParam Integer tamanio_precio) {
 		 
 		 try {
@@ -72,7 +72,7 @@ public class tamanioControllers {
 		 }
 		  return "redirect:/tamanio/ver-tamanio/";
 	 
-	 }
+	 }*/
 	 
 
 	
