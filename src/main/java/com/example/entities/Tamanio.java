@@ -15,6 +15,7 @@ public class Tamanio {
 	private Integer id_tamanio;
     
     @Column(name = "alta")
+
 	private boolean alta;
     @Column(name = "tamanio")
 	private String tamanio;

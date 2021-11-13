@@ -11,10 +11,16 @@ import com.example.entities.Rubro;
 
 @Repository
 public interface RubroRepositories extends JpaRepository<Rubro, Integer> {
+
+		/*@Query("select * from rubro where esEliminado=:esEliminado")
+		List<Rubro> getRubrosActivos(@Param("esEliminadio")Boolean esEliminado);*/
+		
+
 	
 	/*
 		@Query("select * from rubro where esEliminado=:esEliminado")
 		List<Rubro> getRubrosActivos(@Param("esEliminadio")Boolean esEliminado);
 		 */
+
 		
 }

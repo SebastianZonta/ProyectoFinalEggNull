@@ -12,9 +12,11 @@ import com.example.entities.Disposicion;
 @Repository
 public interface DisposicionRepositories extends JpaRepository<Disposicion, Integer>{
 	
-	/*
-	@Query("SELECT a from Perro a WHERE a.activo = true ")
-	public List<Disposicion> buscarActivos();	*/
+
+	@Query("SELECT a from Disposicion a WHERE a.alta = true ")
+	public List<Disposicion> buscarActivos();	
+
+
 	
 }
 

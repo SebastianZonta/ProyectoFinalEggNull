@@ -23,6 +23,7 @@ public class Usuario {
     @Column(name = "nombre")
 	private String nombre;
     @Column(name = "apellido")
+
     
 	private String apellido;
     @Column(name = "email")
@@ -32,15 +33,18 @@ public class Usuario {
     @Column(name = "password")
 	private String password;
     @Column(name = "alta")
+
 	private boolean alta;
-	
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "fecha_registro")
 	private Date fecha_registro;
 
+
 	@OneToOne
 	@JoinColumn(name = "id_rol")
-	private Rol id_rol;
+	private Rol rol;
+
 	
 
 	public Usuario() {
@@ -59,7 +63,7 @@ public class Usuario {
 		this.fecha_registro = fecha_registro;
 		this.email = email;
 		this.numero = numero;
-		this.id_rol = id_rol;
+		this.rol = id_rol;
 		
 	}
 	public boolean isAlta() {
@@ -73,12 +77,12 @@ public class Usuario {
 
 
 	public Rol getId_rol() {
-		return id_rol;
+		return rol;
 	}
 
 
 	public void setId_rol(Rol id_rol) {
-		this.id_rol = id_rol;
+		this.rol = id_rol;
 	}
 
 
