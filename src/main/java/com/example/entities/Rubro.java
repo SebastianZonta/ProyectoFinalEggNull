@@ -1,5 +1,6 @@
 package com.example.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,11 +11,13 @@ public class Rubro {
     
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@Column(name = "id_rubro")
 	private Integer id_rubro;
-	
+	@Column(name = "descripcion_tipo")
 	private String descrpcion_tipo;
-	
+	@Column(name = "precio_rubro")
 	private Integer precio_rubro;
+	@Column(name = "alta")
 	private Boolean alta;
 	
 	
