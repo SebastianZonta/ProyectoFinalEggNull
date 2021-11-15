@@ -23,12 +23,12 @@ public class LoginController {
 	@GetMapping("/")
 	public String index(ModelMap modelo) {
 						
-		return "NomelaContainer.html";
+		return "index.html";
 	}
 
 	@GetMapping("/panel8")
 	public ModelAndView mostrarFormulario() {
-		return new ModelAndView("NomelaContainer");
+		return new ModelAndView("index");
 	}
 	
 	@PostMapping("/crear")
@@ -45,7 +45,7 @@ public class LoginController {
 		System.out.println("password" + password);
 		System.out.println("password2" + password2);
 		System.out.println("arranco");
-		return "redirect:/ ";
+		return "redirect:/micuenta";
 	}catch(Exception e){
 		System.out.println(e.getMessage());
 		System.out.println(e.getStackTrace());
@@ -55,7 +55,7 @@ public class LoginController {
 		System.out.println("password" + password);
 		System.out.println("password2" + password2);
 		System.out.println("no arranco");
-		return "redirect:/";
+		return "redirect:MiCuenta";
 	}
 	}
 
@@ -65,7 +65,7 @@ public class LoginController {
 		if(error != null) {
 			model.put("error", "usuario o clave incorrecto");
 		}
-		return "NomelaContainer.html";
+		return "index";
 	} 
 	
 
@@ -74,5 +74,8 @@ public class LoginController {
 		return new ModelAndView("login");
 	}
 	
-	
+	@GetMapping("/micuenta")
+	public String mostrarCuenta() {
+		return "MiCuenta.htm";
+	}
 }
