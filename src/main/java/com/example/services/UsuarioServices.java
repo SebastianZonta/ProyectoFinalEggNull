@@ -14,14 +14,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import org.springframework.transaction.annotation.Transactional;
 
-
+import com.example.entities.Rol;
 import com.example.entities.Usuario;
 import com.example.errores.WebException;
+import com.example.repositories.RolRepositories;
 import com.example.repositories.UsuarioRepositories;
-
 
 @Service
 public class UsuarioServices implements UserDetailsService {
@@ -29,7 +28,8 @@ public class UsuarioServices implements UserDetailsService {
 @Autowired
 private UsuarioRepositories rpsUsuario;
 
-
+@Autowired
+private RolRepositories rolrepo;
 	
 @Transactional
 public Usuario registrar(long numero,String nombre ,String apellido ,Date fecha_registro, String email ,  String password,String password2) throws WebException{
@@ -43,7 +43,7 @@ public Usuario registrar(long numero,String nombre ,String apellido ,Date fecha_
 	usuario.setFecha_registro(new Date());
 	usuario.setNumero(numero);
 	usuario.setEmail(email);
-
+	usuario.setId_rol(rolrepo.getById(1));
 	   String ecriptada = new BCryptPasswordEncoder().encode(password);
 	  
 		usuario.setPassword(ecriptada);
