@@ -59,10 +59,14 @@ public class LoginController {
 	}
 	}
 
+	
 	@GetMapping("/panel7")
-	public ModelAndView mostrarlogi() {
-		return new ModelAndView("NomelaContainer");
-	}
+	public String login(@RequestParam(required = false)String error, ModelMap model) {
+		if(error != null) {
+			model.put("error", "usuario o clave incorrecto");
+		}
+		return "NomelaContainer.html";
+	} 
 	
 
 	@GetMapping("/login")
