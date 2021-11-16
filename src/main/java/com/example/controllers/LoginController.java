@@ -38,7 +38,7 @@ public class LoginController {
 			@RequestParam("password2") String password2) throws WebException{
 		
 		try {
-		usuarioServices.registrar(numero, apellido, nombre,null, email,password, password2);
+		usuarioServices.registrar(numero, nombre, apellido,null, email,password, password2);
 		System.out.println("nombre" + nombre);
 		System.out.println("apellido" + apellido);
 		System.out.println("email" + email);

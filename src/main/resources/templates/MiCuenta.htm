@@ -91,13 +91,16 @@
             </div>
         </div>
     </div> -->
+   
+		
 
-
-  <div class="hero-section centered wf-section">
+  <div class="hero-section centered wf-section"    >
+ 
     <div data-w-id="e464d218-f801-55d1-1f50-7da00b5bfb8f" style="opacity:0" class="w-container">
-      <h1 data-ix="fade-in-bottom-page-loads" class="hero-heading">NOMELA CONTAINER</h1>
+      <h1 data-ix="fade-in-bottom-page-loads"    class="hero-heading">NOMELA CONTAINER  </h1>
+      <h2 th:if="${session.usuariosession != null} " th:text="${session.usuariosession.nombre + ' ' + session.usuariosession.apellido}" style="color: red;" > </h2>
       <div data-ix="fade-in-bottom-page-loads" class="hero-subheading">Crea nuevos presupuestos, accede a la informacion
-        de tus presupuestos vigentes o actualiza tus datos personales</div>
+        de tus presupuestos vigentes o actualiza tus datos personales </div>
         <div data-ix="fade-in-bottom-page-loads"><a class="button">Nuevo Presupuesto</a><a
           class="hollow-button all-caps" data-toggle="modal" data-target="#DatosPersonales">Datos Personales</a></div>
 

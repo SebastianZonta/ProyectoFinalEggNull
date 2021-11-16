@@ -33,6 +33,9 @@ public class UsuarioServices implements UserDetailsService {
 private UsuarioRepositories rpsUsuario;
 
 @Autowired
+private NotificacionService notificacion;
+
+@Autowired
 private RolRepositories rolrepo;
 	
 @Transactional
@@ -54,6 +57,9 @@ public Usuario registrar(long numero,String nombre ,String apellido ,Date fecha_
 	
 	
 	rpsUsuario.save(usuario);
+	
+	notificacion.enviar("bienvenido a no me la container", "nomelacontainer", usuario.getEmail());
+	
 	return usuario;
 }
 
@@ -142,10 +148,13 @@ public UserDetails loadUserByUsername(String email) throws UsernameNotFoundExcep
 	Usuario usuario = (Usuario) rpsUsuario.buscarporemail(email);
 	
 	if(usuario !=null) {
+		// th:if="${session.usuariosession != null} " th:text="${session.usuariosession.nombre + ' ' + session.usuariosession.apellido}"
+		// th:if="${session.usuariosession != null} " th:text="${session.usuariosession.nombre + ' ' + session.usuariosession.apellido}"
 		
 		List<GrantedAuthority> permiso = new ArrayList<>();
 		GrantedAuthority p1 = new SimpleGrantedAuthority("ROLE_USUARIO_REGISTRADO");
 		permiso.add(p1);
+		
 		GrantedAuthority p2 = new SimpleGrantedAuthority("ROLE_ADMIN_REGISTRADO");
 		permiso.add(p2);
 
