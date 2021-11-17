@@ -6,72 +6,13 @@
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
-.carousel-texto {
-  font-size: 32px;
-  text-align: center;
-  font-weight: bold;
-  position: relative;
-  color: black;
-  font-family: sans-serif;
-  padding: 20px;
-}
-#quienes-somos{
-  
-  padding-top: 0px;
-  padding-bottom: 70px;
-
-}
-
-section.awSlider .carousel{
-  display:table;
-  z-index:2;
-  
-}
-
-section.awSlider{
-  margin:0px auto;
-  padding:0px;
-  position:relative;
-  display:table;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-section.awSlider:hover > img{
-  -ms-transform: scale(2.2);
-  -webkit-transform: scale(2.2);
-  transform: scale(2.2);
-  opacity:1;
-}
-
-section.awSlider img{
-   pointer-events: none;
-}
-
-section.awSlider > img{
-  position:absolute;
-  top:30px;
-  z-index:1;
-  transition:all .3s;
-  filter: blur(1.8vw);
-  -webkit-filter: blur(2vw);
-  -moz-filter: blur(2vw); 
-  -o-filter: blur(2vw); 
-  -ms-filter: blur(2vw);
-  -ms-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  transform: scale(2.5);
-  opacity:.5;
-}
-
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%
+}
+
+table{
 }
 
 body {
@@ -81,6 +22,7 @@ body {
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block
 }
+
 
 audio, canvas, progress, video {
   display: inline-block;
@@ -308,11 +250,11 @@ html {
 body {
   margin: 0;
   min-height: 100%;
-  background-color: #ffffff;
+  background-color: #fff;
   font-family: Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #ffffff;
+  color: #333
 }
 
 img {
@@ -706,7 +648,7 @@ textarea.w-input, textarea.w-select {
 .w-container {
   margin-left: auto;
   margin-right: auto;
-  max-width: 960px;
+  max-width: 940px
 }
 
 .w-container:before, .w-container:after {
@@ -813,7 +755,7 @@ textarea.w-input, textarea.w-select {
 
 @media screen and (max-width:991px) {
   .w-container {
-    max-width: initial
+    max-width: 728px
   }
   .w-hidden-main {
     display: inherit !important
@@ -2095,12 +2037,12 @@ textarea.w-input, textarea.w-select {
    ========================================================================== */
 
 body {
-  background-color:white;
+  background-color: #ffffff;
   font-family: 'Open Sans', sans-serif;
   color: #6a859c;
   font-size: 16px;
   line-height: 20px;
-}
+} 
 
 h1 {
   margin-top: 0px;
@@ -2172,10 +2114,10 @@ p {
   margin-left: 10px;
   padding: 12px 30px;
   border-radius: 4px;
-  background-color: #69b9ff;
+  background-color: #dfe22f;
   -webkit-transition: background-color 300ms ease;
   transition: background-color 300ms ease;
-  color: black;
+  color: #fff;
   font-size: 16px;
   line-height: 21px;
   font-weight: 300;
@@ -2186,7 +2128,7 @@ p {
 }
 
 .button:hover {
-  background-color: #2e9dff;
+  background-color: #ffffff;
 }
 
 .button.w--current {
@@ -2203,15 +2145,15 @@ p {
 .button.tab {
   margin-right: 8px;
   margin-left: 8px;
-  background-color: yellow;
+  background-color: #92a0ad;
 }
 
 .button.tab:hover {
-  background-color: yellow;
+  background-color: #2e80b6;
 }
 
 .button.tab.w--current {
-  background-color:yellow;
+  background-color: #2e80b6;
 }
 
 .navigation-link {
@@ -2225,7 +2167,7 @@ p {
 }
 
 .navigation-link:hover {
-  color: white;
+  color: #2e9dff;
 }
 
 .navigation-link.w--current {
@@ -2295,8 +2237,8 @@ p {
 .section {
   position: relative;
   display: block;
-  padding: 5px 10px;
-  background-color: grey;
+  padding: 80px 10px;
+  background-color: #f0f0f0;
   text-align: center;
 }
 
@@ -2318,24 +2260,24 @@ p {
 }
 
 .hero-section {
-  padding-top: 242px;
+  padding-top: 200px;
   padding-bottom: 242px;
 }
 
 .hero-section.centered {
   padding-top: 195px;
   padding-bottom: 195px;
-  border-bottom: 4px solid #1a1a1a;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(46, 157, 255, 0.5)), to(rgba(46, 157, 255, 0.22))), url("https://images.unsplash.com/photo-1523351964962-1ee5847816c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.747), rgba(0, 0, 0, 0.76)), url("https://images.unsplash.com/photo-1523351964962-1ee5847816c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
-  background-position: 0% 0%, 30% 30%;
+  border-bottom: 4px solid #e9f732;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(49, 49, 44, 0.5)), to(rgba(46, 157, 255, 0.22))), url("https://pxc.cdn.ellitoral.com.ar/litoral/022019/1550463053595.jpg");
+  background-image: linear-gradient(180deg, rgba(51, 51, 43, 0.5), rgba(51, 51, 45, 0.22)), url("https://pxc.cdn.ellitoral.com.ar/litoral/022019/1550463053595.jpg");
+  background-position: 0% 0%, 50% 50%;
   background-size: auto, cover;
   text-align: center;
 }
 
 .hero-heading {
   margin-bottom: 30px;
-  color: #fff;
+  color: rgb(252, 255, 50);
   font-size: 60px;
   line-height: 60px;
   font-weight: 300;
@@ -2345,7 +2287,7 @@ p {
 
 .hero-subheading {
   margin-bottom: 40px;
-  color: #2e9dff;
+  color: rgb(255, 255, 255);
   font-size: 25px;
   line-height: 25px;
   font-weight: 300;
@@ -2358,7 +2300,7 @@ p {
   margin-right: 10px;
   margin-left: 10px;
   padding: 10px 30px;
-  border: 1px solid #fff;
+  border: 1px solid rgb(252, 248, 17);
   border-radius: 4px;
   -webkit-transition: background-color 300ms ease, border 300ms ease, color 300ms ease;
   transition: background-color 300ms ease, border 300ms ease, color 300ms ease;
@@ -2371,8 +2313,8 @@ p {
 }
 
 .hollow-button:hover {
-  border-color: yellow;
-  color: yellow;
+  border-color: #e9ff23;
+  color: #e9ff23;
 }
 
 .hollow-button.all-caps {
@@ -2385,7 +2327,7 @@ p {
 }
 
 .section-heading.centered {
-  color: black;
+  color: #676770;
   font-size: 30px;
   font-weight: 300;
   text-align: center;
@@ -2394,11 +2336,11 @@ p {
 }
 
 .section-heading.centered.white {
-  color:black;
+  color: #fff;
 }
 
 .section-subheading.center {
-  color:black;
+  color: #8e8e9c;
   font-size: 18px;
   font-weight: 300;
   text-align: center;
@@ -2408,7 +2350,7 @@ p {
 
 .section-subheading.center.off-white {
   padding-bottom: 0px;
-  color: white;
+  color: #e8e8e8;
 }
 
 .section-title-group {
@@ -2428,31 +2370,32 @@ p {
 }
 
 .footer {
-  padding-top: 40px;
+  padding-top: 35px;
   padding-bottom: 35px;
 }
 
 .footer.center {
   border-top: 1px solid #dbdbdb;
-  background-color: #e2c830;
+  background-color: #383838;
   text-align: center;
 }
 
 .footer-text {
-  margin-top: 30px;
+  margin-top: 5px;
   margin-bottom: 5px;
-  color: black;
-  font-size: 14px;
+  color: #9e9e9e;
+  font-size: 16px;
 }
 
 .grid-image {
   display: block;
   width: 35%;
   margin: 20px auto;
-  padding: 15px;
+  padding: 20px;
   border: 10px solid #fff;
-  background-color: #e2c830;
-  box-shadow: 0 0 0 1px #e2c830;
+  border-radius: 50%;
+  background-color: #69b9ff;
+  box-shadow: 0 0 0 1px #2e9dff;
 }
 
 .info-icon {
@@ -2463,15 +2406,15 @@ p {
   display: block;
   margin-bottom: 6px;
   padding-bottom: 10px;
-  border-bottom: 1px solid black;
-  color: black;
+  border-bottom: 1px solid #d5d5e0;
+  color: #668cad;
   font-size: 14px;
   font-weight: 300;
   text-decoration: none;
 }
 
 .footer-link:hover {
-  color: white;
+  color: rgba(0, 140, 255, 0.84);
 }
 
 .footer-link.with-icon {

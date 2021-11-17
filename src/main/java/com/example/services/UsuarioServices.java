@@ -127,9 +127,6 @@ private void validar(String nombre ,String apellido, String email ,String passwo
 		throw new WebException("el apellido no puede estar vacio");
 	}
 	
-	/*if(numero ==null ) {
-		throw new WebException("el numereo no puede estar vacio");
-	} */
 	if(email == null || email.isEmpty()) {
 		throw new WebException("el email no puede estar vacio");
 	}
@@ -158,9 +155,7 @@ public UserDetails loadUserByUsername(String email) throws UsernameNotFoundExcep
 		GrantedAuthority p2 = new SimpleGrantedAuthority("ROLE_ADMIN_REGISTRADO");
 		permiso.add(p2);
 
-       
-		
-		
+ 
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true);
 		session.setAttribute("usuariosession", usuario);
