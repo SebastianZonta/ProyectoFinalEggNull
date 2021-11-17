@@ -31,6 +31,12 @@ public class LoginController {
 		return new ModelAndView("index");
 	}
 	
+
+	@GetMapping("/logout")
+	public String salir() {
+		return "redirect: /" ;
+	}
+	
 	@PostMapping("/crear")
 	public String registrar(@RequestParam("numero") long numero , @RequestParam("nombre") String nombre , 
 			@RequestParam("apellido") String apellido , @RequestParam("email") String email , 
@@ -39,34 +45,29 @@ public class LoginController {
 		
 		try {
 		usuarioServices.registrar(numero, nombre, apellido,null, email,password, password2);
-		System.out.println("nombre" + nombre);
-		System.out.println("apellido" + apellido);
-		System.out.println("email" + email);
-		System.out.println("password" + password);
-		System.out.println("password2" + password2);
-		System.out.println("arranco");
+	
 		return "redirect:/micuenta";
 	}catch(Exception e){
-		System.out.println(e.getMessage());
-		System.out.println(e.getStackTrace());
-		System.out.println("nombre" + nombre);
-		System.out.println("apellido" + apellido);
-		System.out.println("email" + email);
-		System.out.println("password" + password);
-		System.out.println("password2" + password2);
-		System.out.println("no arranco");
 		return "redirect:MiCuenta";
 	}
 	}
 
 	
 	@GetMapping("/panel7")
-	public String login(@RequestParam(required = false)String error, ModelMap model) {
+	public String login(@RequestParam(required = false)String error ,@RequestParam(required = false)String logout, ModelMap model) {
 		if(error != null) {
 			model.put("error", "usuario o clave incorrecto");
 		}
-		return "index";
+		
+		if(logout != null) {
+			model.put("error", "ha salido correctamente de la plataforma");
+		}
+		return "index.htm";
 	} 
+	
+	
+
+	
 	
 
 	@GetMapping("/login")

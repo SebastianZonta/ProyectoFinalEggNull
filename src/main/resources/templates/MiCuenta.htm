@@ -3,7 +3,8 @@
 <!DOCTYPE html><!-- This site was created in Webflow. http://www.webflow.com -->
 <!-- Last Published: Thu Oct 28 2021 23:28:50 GMT+0000 (Coordinated Universal Time) -->
 <html data-wf-domain="nomelacontainer.webflow.io" data-wf-page="617b28f883e66067cdd9a6a4"
-    data-wf-site="617b28f883e6602898d9a69f" data-wf-status="1">
+    data-wf-site="617b28f883e6602898d9a69f" data-wf-status="1"
+    xmlns:th="http://www.thymeleaf.org" >
 
 <head>
     <meta charset="utf-8" />
@@ -56,7 +57,7 @@
                 <a class="nav-link text-dark" href="#proyectos">Proyectos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-warning" data-toggle="modal" data-target="#myModal" >Cerrar Sesión</a> .
+                <a class="nav-link text-warning" th:href="@{/logout}" >Cerrar Sesión  </a> .
                 
             </li>
 
