@@ -23,7 +23,7 @@ public class LoginController {
 	@GetMapping("/")
 	public String index(ModelMap modelo) {
 						
-		return "index.html";
+		return "index.htm";
 	}
 
 	@GetMapping("/panel8")

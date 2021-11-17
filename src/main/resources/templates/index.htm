@@ -27,13 +27,13 @@
 
     <!-- Latest minified bootstrap js -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="nomelacontainer.css" rel="stylesheet" type="text/css" />
+    <link href="index.css" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body>
     <!-- NAV de bootstrap -->
-    <nav id="navbar-example2" class="navbar navbar-light bg-white px-3 fixed-top" id="inicio">
+    <nav id="navbar-example2" class="navbar navbar-light bg-white px-3 fixed-top" >
         <img src="https://uploads-ssl.webflow.com/617b28f883e6602898d9a69f/617b2b191435987142c28dc2_LOGO.png"
             loading="lazy" width="119" sizes="(max-width: 991px) 100vw, 119px"
             srcset="https://uploads-ssl.webflow.com/617b28f883e6602898d9a69f/617b2b191435987142c28dc2_LOGO-p-500.png 500w, https://uploads-ssl.webflow.com/617b28f883e6602898d9a69f/617b2b191435987142c28dc2_LOGO-p-800.png 800w, https://uploads-ssl.webflow.com/617b28f883e6602898d9a69f/617b2b191435987142c28dc2_LOGO-p-1080.png 1080w, https://uploads-ssl.webflow.com/617b28f883e6602898d9a69f/617b2b191435987142c28dc2_LOGO.png 1347w"
@@ -86,29 +86,30 @@
 
                             <!--Body-->
                             <!--EN EL ACTION VA LA RUTA AL ARCHIVO DE JAVA QUE VA A RECIBIR EL FORMULARIO-->
-                            <form action="" method="post" enctype="text/plain">
-                                <div class=" modal-body mb-1">
-
-                                    <div class="md-form form-sm mb-5">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <label data-error="wrong" data-success="right" for="email-login"
-                                            name="email-login">Ingrese su E-Mail:</label>
-                                        <input type="email" id="email-login"
-                                            class="form-control form-control-sm validate">
+                            <form th:action="@{/logincheck}"  method="POST" >
+                                <p th:if="${error != null}"  th:text="${error}" style="color: red;"></p> 
+                                    <div class=" modal-body mb-1">
+                                        <div class="md-form form-sm mb-5">
+                                            <i class="fas fa-envelope prefix"></i>
+                                            <label data-error="wrong" data-success="right" for="email-login"
+                                                name="email-login">Ingrese su E-Mail:</label>
+                                            <input type="email" name="username"
+                                                class="form-control form-control-sm validate">
+                                        </div>
+    
+                                        <div class="md-form form-sm mb-4">
+                                            <i class="fas fa-lock prefix"></i>
+                                            <label data-error="wrong" data-success="right" for="password-login"
+                                                name="password-login">Ingrese su contraseña:</label>
+                                            <input type="password" name="password"
+                                                class="form-control form-control-sm validate">
+                                        </div>
+                                        <div class="text-center mt-2">
+                                            <button class="btn btn-info" type="submit">Ingresar<i
+                                                    class="fas fa-sign-in ml-1"></i></button>
+                                        </div>
                                     </div>
-                                    <div class="md-form form-sm mb-4">
-                                        <i class="fas fa-lock prefix"></i>
-                                        <label data-error="wrong" data-success="right" for="password-login"
-                                            name="password-login">Ingrese su contraseña:</label>
-                                        <input type="password" id="password-login"
-                                            class="form-control form-control-sm validate">
-                                    </div>
-                                    <div class="text-center mt-2">
-                                        <button class="btn btn-info" type="submit">Ingresar<i
-                                                class="fas fa-sign-in ml-1"></i></button>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
                         </div>
                         <!--/.Panel 7-->
                         <!--MODAL REGISTRO-->
@@ -117,45 +118,44 @@
 
                             <!--Body-->
                             <!--EN EL ACTION VA LA RUTA AL ARCHIVO DE JAVA QUE VA A RECIBIR EL FORMULARIO-->
-                            <form action="" method="post" enctype="text/plain">
+                            <form th:action="@{/crear}" method="post">
                                 <div class="modal-body">
-
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-envelope prefix"></i>
-                                        <label data-error="wrong" data-success="right" for="nombre-registro"
-                                            name="nombre-registro"> Nombre:</label>
-                                        <input type="text" id="nombre-registro" placeholder="Bruno"
-                                            class="form-control form-control-sm validate">
-                                    </div>
-                                    <div class="md-form form-sm mb-5">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <label data-error="wrong" data-success="right" for="apellido-registro"
-                                            name="apellido-registro">Apellido:</label>
-                                        <input type="text" id="apellido-registro" placeholder="Frontend"
-                                            class="form-control form-control-sm validate">
-                                    </div>
-                                    <div class="md-form form-sm mb-5">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <label data-error="wrong" data-success="right" for="tel-registro"
-                                            name="tel-registro">Telefono:</label>
-                                        <input type="tel" id="tel-registro" placeholder="011-5000022"
+                                        <label data-error="wrong" data-success="right" for="email-registro"
+                                            name="email-registro">Registre su nombre:</label>
+                                        <input type="text" name="nombre"
                                             class="form-control form-control-sm validate">
                                     </div>
 
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-envelope prefix"></i>
                                         <label data-error="wrong" data-success="right" for="email-registro"
-                                            name="email-registro">E-Mail:</label>
-                                        <input type="email" id="email-registro"
-                                            placeholder="usuario@nomelacontainer.com"
+                                            name="email-registro">Registre su apellido:</label>
+                                        <input type="text" name="apellido"
+                                            class="form-control form-control-sm validate">
+                                    </div>
+
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-envelope prefix"></i>
+                                        <label data-error="wrong" data-success="right" for="email-registro"
+                                            name="email-registro">Registre su numero:</label>
+                                        <input type="number" name="numero"
+                                            class="form-control form-control-sm validate">
+                                    </div>
+                                    <div class="md-form form-sm mb-5">
+                                        <i class="fas fa-envelope prefix"></i>
+                                        <label data-error="wrong" data-success="right" for="email-registro"
+                                            name="email-registro">Registre su E-Mail:</label>
+                                        <input type="email" name="email"
                                             class="form-control form-control-sm validate">
                                     </div>
 
                                     <div class="md-form form-sm mb-5">
                                         <i class="fas fa-lock prefix"></i>
                                         <label data-error="wrong" data-success="right" for="password-registro"
-                                            name="password-registro">Contraseña:</label>
-                                        <input type="password" id="password-registro" placeholder="AlGo.Compl1cad0"
+                                            name="password-registro">Registre su contraseña:</label>
+                                        <input type="password" name="password"
                                             class="form-control form-control-sm validate">
                                     </div>
 
@@ -163,8 +163,7 @@
                                         <i class="fas fa-lock prefix"></i>
                                         <label data-error="wrong" data-success="right" for="password-registro-b"
                                             name="password-registro-b">Confirme la contraseña:</label>
-                                        <input type="password" id="password-registro-b"
-                                            placeholder="Rep3t1loCom0.Arr1bA"
+                                        <input type="password" name="password2"
                                             class="form-control form-control-sm validate">
                                     </div>
 
@@ -173,6 +172,7 @@
                                                 class="fas fa-sign-in ml-1"></i></button>
                                     </div>
                             </form>
+
 
                         </div>
 
