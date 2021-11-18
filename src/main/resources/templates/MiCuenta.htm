@@ -3,8 +3,7 @@
 <!DOCTYPE html><!-- This site was created in Webflow. http://www.webflow.com -->
 <!-- Last Published: Thu Oct 28 2021 23:28:50 GMT+0000 (Coordinated Universal Time) -->
 <html data-wf-domain="nomelacontainer.webflow.io" data-wf-page="617b28f883e66067cdd9a6a4"
-    data-wf-site="617b28f883e6602898d9a69f" data-wf-status="1"
-    xmlns:th="http://www.thymeleaf.org" >
+    data-wf-site="617b28f883e6602898d9a69f" data-wf-status="1">
 
 <head>
     <meta charset="utf-8" />
@@ -57,7 +56,8 @@
                 <a class="nav-link text-dark" href="#proyectos">Proyectos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-warning" href="/logout" >Cerrar Sesión  </a> .
+               <a class="nav-link text-warning" href="/logout" >Cerrar Sesión  </a>
+
                 
             </li>
 
@@ -119,55 +119,19 @@
     <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col"> </th>
-            <th scope="col">IdPres</th>
-            <th scope="col">Fecha</th>
+            <th scope="col"> id</th>
+            <th scope="col">tamanio</th>
+            <th scope="col">tamanio</th>
             <th scope="col">Nombre</th>
             <th scope="col">Precio</th>
             <th scope="col">Detalle</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>245</td>
-            <td>16/09/2021</td>
-            <td>Casa Prueba</td>
-            <td>$1.000.000</td>
-            <td><a href="#" class="button2" data-toggle="modal" data-target="#ModPresupuestos">Ver Detalle</a></td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>245</td>
-            <td>16/09/2021</td>
-            <td>Casa Prueba</td>
-            <td>$1.000.000</td>
-            <td><a href="#" class="button2"data-toggle="modal" data-target="#ModPresupuestos">Ver Detalle</a></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>245</td>
-            <td>16/09/2021</td>
-            <td>Casa Prueba</td>
-            <td>$1.000.000</td>
-            <td><a href="#" class="button2"data-toggle="modal" data-target="#ModPresupuestos">Ver Detalle</a></td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>245</td>
-            <td>16/09/2021</td>
-            <td>Casa Prueba</td>
-            <td>$1.000.000</td>
-            <td><a href="#" class="button2"data-toggle="modal" data-target="#ModPresupuestos">Ver Detalle</a></td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>245</td>
-            <td>16/09/2021</td>
-            <td>Casa Prueba</td>
-            <td>$1.000.000</td>
-            <td><a href="#" class="button2"data-toggle="modal" data-target="#ModPresupuestos">Ver Detalle</a></td>
-          </tr>
+          <tr  th:each="presupuesto: ${session.presupuestos}" >
+            <td th:text="${presupuesto.id_presupuesto}"></td>
+		 <td th:text="${presupuesto.id_tamanio.tamanio}"></td>
+     
         </tbody>
       </table>
     </div>
@@ -186,7 +150,7 @@
                 <form class="row g-3">
                     <div class="col-md-6">
                       <label for="inputEmail4" class="form-label">Mail</label>
-                      <input type="email" class="form-control" name="email" th:value"${usuario}>
+                      <input type="email" class="form-control" id="inputEmail4">
                     </div>
                     <div class="col-md-6">
                       <label for="inputPassword4" class="form-label">Contraseña</label>

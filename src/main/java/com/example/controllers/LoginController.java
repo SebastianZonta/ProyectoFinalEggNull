@@ -47,6 +47,10 @@ public class LoginController {
 		return "redirect:MiCuenta";
 	}
 	}
+	
+	
+	
+	
 
 	
 	@GetMapping("/panel7")
