@@ -43,11 +43,11 @@ public class seguridadConfiguracion extends WebSecurityConfigurerAdapter{
 		.loginProcessingUrl("/logincheck")
 		.usernameParameter("username")
 		.passwordParameter("password")
-		.defaultSuccessUrl("/micuenta")
+		.defaultSuccessUrl("/")
 		.permitAll()
 		.and().logout()
 		.logoutUrl("/logout")
-		.logoutSuccessUrl("/")
-		.permitAll();
+		.logoutSuccessUrl("/panel7?logout")
+		.permitAll().and().csrf().disable();
 	} 
 }

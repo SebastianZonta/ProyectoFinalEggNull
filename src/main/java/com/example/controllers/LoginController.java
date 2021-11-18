@@ -1,15 +1,20 @@
 package com.example.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.entities.Usuario;
 import com.example.errores.WebException;
+import com.example.services.PresupuestoService;
 import com.example.services.UsuarioServices;
 
 @Controller
@@ -18,6 +23,9 @@ public class LoginController {
 
 	@Autowired
 	private UsuarioServices usuarioServices;
+	
+	@Autowired
+	private PresupuestoService presu;
 	
 	
 	@GetMapping("/")
@@ -31,6 +39,10 @@ public class LoginController {
 		return new ModelAndView("index");
 	}
 	
+
+	
+	
+	
 	@PostMapping("/crear")
 	public String registrar(@RequestParam("numero") long numero , @RequestParam("nombre") String nombre , 
 			@RequestParam("apellido") String apellido , @RequestParam("email") String email , 
@@ -39,34 +51,33 @@ public class LoginController {
 		
 		try {
 		usuarioServices.registrar(numero, nombre, apellido,null, email,password, password2);
-		System.out.println("nombre" + nombre);
-		System.out.println("apellido" + apellido);
-		System.out.println("email" + email);
-		System.out.println("password" + password);
-		System.out.println("password2" + password2);
-		System.out.println("arranco");
+	
 		return "redirect:/micuenta";
 	}catch(Exception e){
-		System.out.println(e.getMessage());
-		System.out.println(e.getStackTrace());
-		System.out.println("nombre" + nombre);
-		System.out.println("apellido" + apellido);
-		System.out.println("email" + email);
-		System.out.println("password" + password);
-		System.out.println("password2" + password2);
-		System.out.println("no arranco");
 		return "redirect:MiCuenta";
 	}
 	}
+	
+	
+	
+	
 
 	
 	@GetMapping("/panel7")
-	public String login(@RequestParam(required = false)String error, ModelMap model) {
+	public String login(@RequestParam(required = false)String error ,@RequestParam(required = false)String logout, ModelMap model) {
 		if(error != null) {
 			model.put("error", "usuario o clave incorrecto");
 		}
-		return "index";
+		
+		if(logout != null) {
+			model.put("error", "ha salido correctamente de la plataforma");
+		}
+		return "index.htm";
 	} 
+	
+	
+
+	
 	
 
 	@GetMapping("/login")
@@ -74,8 +85,22 @@ public class LoginController {
 		return new ModelAndView("login");
 	}
 	
-	@GetMapping("/micuenta")
-	public String mostrarCuenta() {
-		return "MiCuenta.htm";
+	@GetMapping("/micuenta/{id}")
+	public ModelAndView mostrarCuenta(@PathVariable("id")Integer id) {
+		
+		Optional<Usuario> usuario =	usuarioServices.buscarUsuarioPorID(id);
+		
+		Integer rol = usuario.get().getId_rol().getId_rol();
+		if(rol == 1) {
+			ModelAndView mav = new ModelAndView("Admin");
+			mav.addObject("presupuesto" , presu.getAll());
+			return mav;
+		}
+		
+		ModelAndView mav2 = new ModelAndView("MiCuenta");
+		mav2.addObject("presupuesto", presu.listadePresupuesto(id));
+		 return mav2;
+		
+
 	}
 }

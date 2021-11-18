@@ -56,6 +56,12 @@ public void preciofinal(Abertura abertura, Tamanio tamanio , Rubro rubro) {
 	
 }
 
+@Transactional
+public List<Presupuesto> listadePresupuesto(Integer id){
+	return rpsPresupuesto.listaPresupuesto(id);
+}
+
+
 @Transactional(readOnly = true)
 public List<Presupuesto> getAll()
 {

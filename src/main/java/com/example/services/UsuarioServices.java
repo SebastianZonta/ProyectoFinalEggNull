@@ -23,6 +23,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import com.example.entities.Rol;
 import com.example.entities.Usuario;
 import com.example.errores.WebException;
+import com.example.repositories.PresupuestoRepositories;
 import com.example.repositories.RolRepositories;
 import com.example.repositories.UsuarioRepositories;
 
@@ -31,6 +32,9 @@ public class UsuarioServices implements UserDetailsService {
 
 @Autowired
 private UsuarioRepositories rpsUsuario;
+
+@Autowired
+private PresupuestoRepositories presu;
 
 @Autowired
 private NotificacionService notificacion;
@@ -152,14 +156,16 @@ public UserDetails loadUserByUsername(String email) throws UsernameNotFoundExcep
 		GrantedAuthority p1 = new SimpleGrantedAuthority("ROLE_USUARIO_REGISTRADO");
 		permiso.add(p1);
 		
-		GrantedAuthority p2 = new SimpleGrantedAuthority("ROLE_ADMIN_REGISTRADO");
-		permiso.add(p2);
+	/*	GrantedAuthority p2 = new SimpleGrantedAuthority("ROLE_ADMIN_REGISTRADO");
+		permiso.add(p2); */
 
+		
  
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true);
 		session.setAttribute("usuariosession", usuario);
 
+        
 		User user = new User(usuario.getEmail(), usuario.getPassword() , permiso);
 		return user;
 	}else {
