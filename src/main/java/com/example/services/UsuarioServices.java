@@ -152,8 +152,8 @@ public UserDetails loadUserByUsername(String email) throws UsernameNotFoundExcep
 		GrantedAuthority p1 = new SimpleGrantedAuthority("ROLE_USUARIO_REGISTRADO");
 		permiso.add(p1);
 		
-		GrantedAuthority p2 = new SimpleGrantedAuthority("ROLE_ADMIN_REGISTRADO");
-		permiso.add(p2);
+	/*	GrantedAuthority p2 = new SimpleGrantedAuthority("ROLE_ADMIN_REGISTRADO");
+		permiso.add(p2); */
 
  
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();

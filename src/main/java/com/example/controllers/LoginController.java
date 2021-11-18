@@ -32,10 +32,6 @@ public class LoginController {
 	}
 	
 
-	@GetMapping("/logout")
-	public String salir() {
-		return "redirect: /" ;
-	}
 	
 	@PostMapping("/crear")
 	public String registrar(@RequestParam("numero") long numero , @RequestParam("nombre") String nombre , 
