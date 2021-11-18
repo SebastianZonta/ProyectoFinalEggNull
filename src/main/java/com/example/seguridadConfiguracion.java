@@ -43,7 +43,7 @@ public class seguridadConfiguracion extends WebSecurityConfigurerAdapter{
 		.loginProcessingUrl("/logincheck")
 		.usernameParameter("username")
 		.passwordParameter("password")
-		.defaultSuccessUrl("/micuenta")
+		.defaultSuccessUrl("/")
 		.permitAll()
 		.and().logout()
 		.logoutUrl("/logout")

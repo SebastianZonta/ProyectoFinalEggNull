@@ -164,7 +164,7 @@ public UserDetails loadUserByUsername(String email) throws UsernameNotFoundExcep
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true);
 		session.setAttribute("usuariosession", usuario);
-        session.setAttribute("presupuestos", presu.findAll());
+
         
 		User user = new User(usuario.getEmail(), usuario.getPassword() , permiso);
 		return user;
