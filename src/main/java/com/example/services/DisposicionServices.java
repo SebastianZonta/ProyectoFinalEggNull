@@ -102,6 +102,14 @@ public List<Disposicion> listarTodos(){
 	return rpsDisposicion.findAll();
 }
 
+@Transactional
+	public List<Disposicion> buscarDisposicion(){
+		List<Disposicion> buscar = rpsDisposicion.findAll();
+		
+		return buscar;
+	}
+
+
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = { WebException.class, Exception.class })
 
 private void validar(String descripcion_disposicion ,Integer precio_disposicion) throws WebException{

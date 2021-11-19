@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.entities.Abertura;
+import com.example.entities.Disposicion;
 import com.example.entities.Presupuesto;
 import com.example.entities.Rubro;
 import com.example.entities.Tamanio;
+import com.example.entities.Usuario;
 import com.example.repositories.PresupuestoRepositories;
 
 
@@ -33,7 +35,7 @@ private RubroServices servRubro;
 
 
 @Transactional
-public void preciofinal(Abertura abertura, Tamanio tamanio , Rubro rubro) {
+public void preciofinal(Abertura abertura, Tamanio tamanio , Rubro rubro, Usuario usuario , Disposicion disposicion) {
 	
 	Presupuesto presu = new Presupuesto();
 	
@@ -41,6 +43,8 @@ public void preciofinal(Abertura abertura, Tamanio tamanio , Rubro rubro) {
 	presu.setId_abertura(abertura);
 	abertura.getPrecio_abertura();
 	
+	presu.setId_disposicion(disposicion);
+	presu.setId_usuario(usuario);
 	/*servTamanio.precioabertura(tamanio);*/
 	presu.setId_tamanio(tamanio);
 	tamanio.getPrecio_tamanio();
@@ -55,6 +59,8 @@ public void preciofinal(Abertura abertura, Tamanio tamanio , Rubro rubro) {
 	
 	
 }
+
+
 
 @Transactional(readOnly = true)
 public List<Presupuesto> getAll()
